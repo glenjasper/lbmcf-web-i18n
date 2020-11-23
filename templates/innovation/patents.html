@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Patents' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h2 class="section-heading text-uppercase">{% trans 'Patents' %}</h2>
+                    </div>
+                </div>
+            </div>
+            {% for patent in context_patents %}
+                <div class="g-padding-y-10--xs">
+                    <div class="row g-margin-b-30--xs">
+                        <div class="col-sm-12">
+                            <div class="g-margin-t-10--md g-margin-b-20--xs">
+                                <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-20--xs">
+                                    {{ patent.deposit_date|date:"DATE_FORMAT" }}
+                                </p>
+                                <h2 class="g-font-size-30--md">
+                                    {{ patent.title }}
+                                </h2>
+                                <p class="text-muted-alter g-font-size-13--md">
+                                    <b>{% trans 'Authors' %}: </b>{{ patent.authors }}
+                                    <br>
+                                    <b>{% trans 'RegNum' %}: </b>{{ patent.register_number }}
+                                    <br>
+                                    <b>{% trans 'PatType' %}: </b>{{ patent.patent_type }}
+                                    <br>
+                                    <b>{% trans 'Registry Institution' %}: </b>{{ patent.registry_institution.full_name }} ({{ patent.registry_institution }})
+                                </p>
+                                {% if patent.abstract %}
+                                <p class="text-muted-alter g-font-size-15--md">
+                                    {{ patent.abstract|linebreaks }}
+                                </p>
+                                {% endif %}
+                                {% if patent.url %}
+                                <p class="g-font-size-13--md">
+                                    <b>LINK: </b>
+                                    <a href="{{ paper.doi }}" target="_blank" rel="noopener noreferrer">
+                                        {{ patent.url }}
+                                    </a>
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if not forloop.last %}<hr>{% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

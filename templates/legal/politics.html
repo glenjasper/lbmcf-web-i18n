@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Security Policy' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h3 class="section-heading text-uppercase">{% trans 'Legal Warning' %}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="g-padding-y-10--xs">
+                <div class="row g-margin-b-30--xs">
+                    <div class="col-sm-12">
+                        <div class="g-margin-t-10--md g-margin-b-20--xs">
+                            <h2 class="g-font-size-20--md">
+                                {{ context_legal.title }}
+                            </h2>
+                            <div class="text-right">
+                                <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-20--xs">
+                                    {{ context_legal.updated|date:"DATE_FORMAT" }}
+                                </p>
+                            </div>
+                            <p class="g-font-size-15--md">
+                                <!--{{ context_legal.content|linebreaks }}-->
+                                {{ context_legal.content|safe }}
+                                <!--
+                                {% if user.is_authenticated %}
+                                    <div class="text-center">
+                                        <!- -'admin:App_Model_Action' obj.id- ->
+                                        <a href="{% url 'admin:legal_legal_change' context_legal.id %}" target="_blank" rel="noopener noreferrer">
+                                            Edit
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                -->
+                                <!--{{ request.user.is_staff }}-->
+                                {% load custom_functions %}
+                                {% if request.user.is_superuser or request.user|has_group:VG_GROUP_REGULAR %}
+                                    <div class="text-left">
+                                        <a href="{% url 'legal_app:url_legal_update' context_legal.id %}">
+                                            {% trans 'Edit' %}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

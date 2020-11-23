@@ -1,0 +1,69 @@
+{% load static %}
+{% load i18n %}
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-inline academic-buttons">
+                        <li class="list-inline-item">
+                            <a href="https://ufmg.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'img/ufmg.png' %}">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.icb.ufmg.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'img/icb.png' %}">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <span class="copyright">Copyright &copy; LBMCF {% now "Y" %}</span>
+                    {% load pages_all %}
+                    {% get_page_list as page_list %}
+                    {% if page_list.count > 0 %}
+                        &nbsp;|&nbsp;
+                    {% endif %}
+                    {% for page in page_list %}
+                        <a class="copyright" href="{% url 'legal_app:url_pages' page.id page.title|slugify %}">{{ page.title }}</a>
+                        {% if not forloop.last %}.{% endif %}
+                    {% endfor %}
+                    &nbsp;|&nbsp;
+                    <a class="copyright" href="{% url 'contact_app:url_contact' %}">{% trans 'Contact' %}</a>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-inline social-buttons">
+                        {% if LINK_TWITTER %}
+                        <li class="list-inline-item">
+                            <a href="{{ LINK_TWITTER }}" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if LINK_FACEBOOK %}
+                        <li class="list-inline-item">
+                            <a href="{{ LINK_FACEBOOK }}" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if LINK_INSTAGRAM %}
+                        <li class="list-inline-item">
+                            <a href="{{ LINK_INSTAGRAM }}" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if LINK_LINKEDIN %}
+                        <li class="list-inline-item">
+                            <a href="{{ LINK_LINKEDIN }}" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>

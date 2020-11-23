@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Profile' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<style>.errorlist{color:red;} label{display:none}</style>
+<main role="main">
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-9 mx-auto">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <h3 class="text-uppercase mb-4 mt-5 mx-auto">{% trans 'Profile' %}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Previa del avatar -->
+                            <div class="col-md-3 mt-0 mx-auto">
+                                {% if request.user.profile.avatar %}
+                                    <img src="{{request.user.profile.avatar.url}}" class="img-fluid">
+                                    <p class="mt-1 text-center">
+                                        {% trans 'Delete?' %} <input type="checkbox" id="avatar-clear" name="avatar-clear"/>
+                                    </p>
+                                {% else %}
+                                    <img src="{% static 'img/no-avatar.png' %}" class="img-fluid">
+                                    <input type="file" name="avatar" class="form-control-file mt-3" id="id_avatar">
+                                {% endif %}
+                            </div>
+                            <!-- Formulario -->
+                            <div class="col-md-9">
+                                <!--
+                                {{ form.biography }}
+                                {{ form.link }}
+                                -->
+                                <div class="row mt-3">
+                                    <div class="col-md-2">
+                                        {% trans 'Name' %}:
+                                    </div>
+                                    <div>
+                                        <b>{{ request.user.first_name }} {{ request.user.last_name }}</b>
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-md-2">
+                                        {% trans 'User' %}:
+                                    </div>
+                                    <div>
+                                        <b>{{ request.user }}</b>
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-md-2">
+                                        E-mail:
+                                    </div>
+                                    <div>
+                                        <b>{{ request.user.email }}</b>
+                                    </div>
+                                </div>
+                                <div class="row col-md-9 mt-3">
+                                    <div>
+                                        {% trans 'If you want to edit your email click' %} <a href="{% url 'registration_app:url_profile_email' %}">{% trans 'here' %}</a>.
+                                    </div>
+                                </div>
+                                <div class="row col-md-9 mt-1">
+                                    <div>
+                                        {% trans 'If you want to change your password click' %} <a href="{% url 'password_change' %}">{% trans 'here' %}</a>.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-primary btn-block mt-1 col-md-2 mx-auto" value="{% trans 'Update' %}">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

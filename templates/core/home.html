@@ -1,0 +1,772 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}LBMCF | {{ block.super }}{% endblock %}
+
+<!-- About -->
+{% block content_about %}
+    <section id="section_home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h2 class="section-heading text-uppercase">
+                            LBMCF
+                        </h2>
+                        <h3 class="section-subheading text-muted">
+                            {% trans 'Molecular and Computational Biology of Fungi Laboratory' %}
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="text-justify">
+                                <p class="text-muted">
+                                    {{ context_about.description|safe }}
+                                    <!--{{ request.user.is_staff }}-->
+                                    {% load custom_functions %}
+                                    {% if request.user.is_superuser or request.user|has_group:VG_GROUP_REGULAR %}
+                                        <div class="text-left">
+                                            <a href="{% url 'about_app:url_about_update' context_about.id %}">
+                                                {% trans 'Edit' %}
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <img src="{% static 'img/logo.png' %}" class="img-about">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content_about %}
+
+<!-- News -->
+{% block content_news %}
+    <section id="section_news" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h2 class="section-heading text-uppercase">
+                            {% trans 'News' %}
+                        </h2>
+                        <h3 class="section-subheading text-muted">
+                            {% blocktrans %}National and international events in which LBMCF researchers participated{% endblocktrans %}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for news in context_news %}
+                <div class="col-md-3">
+                    <div class="team-item">
+                        <div class="team-image floating-icon">
+                            <a href="{% url 'news_app:url_newsdetail' news.id %}">
+                                <img src="{{ news.logo.url }}" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="team-text">
+                            <h3>{{ news.title }}</h3>
+                            <div class="team-location">{{ news.location }}</div>
+                            <div class="team-position">– {{ news.date }} –</div>
+                            <p>{{ news.description|slice:"0:110" }}...</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="container-news-title">
+                <a href="{% url 'news_app:url_newsall' %}">{% trans 'See more' %}...</a>
+            </div>
+        </div>
+    </section>
+{% endblock content_news %}
+
+<!-- Research -->
+{% block content_research %}
+    <section id="section_research">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">{% trans 'Research' %}</h2>
+                    <h3 class="section-subheading text-muted">
+                        {% blocktrans %}Research carried out by LBMCF members, as well as public documents of interest to the scientific community{% endblocktrans %}
+                    </h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="floating-icon">
+                        <a href="{% url 'research_app:url_projects' %}">
+                            <span class="fa-stack fa-4x">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-flask fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <h4 class="service-heading">{% trans 'Projects' %}</h4>
+                    <p class="text-muted">
+                        {% blocktrans %}Projects developed by LBMCF or in national and international partnerships, which are of great technological, biotechnological, social and development importance mainly for Brazil.{% endblocktrans %}
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="floating-icon">
+                        <a href="{% url 'research_app:url_protocols' %}">
+                            <span class="fa-stack fa-4x">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-check-double fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <h4 class="service-heading">{% trans 'Protocols' %}</h4>
+                    <p class="text-muted">
+                        {% blocktrans %}Techniques, methodologies and workflows followed by LBMCF researchers, who can serve as a guide for other researchers.{% endblocktrans %}
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="floating-icon">
+                        <a href="{% url 'research_app:url_files' %}">
+                            <span class="fa-stack fa-4x">
+                                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fas fa-folder-open fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <h4 class="service-heading">{% trans 'Files' %}</h4>
+                    <p class="text-muted">
+                        {% blocktrans %}Catalog of documents of exclusive interest to the LBMCF.{% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content_research %}
+
+<!-- Team -->
+{% block content_team %}
+    <section id="section_team" class="bg-light footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">{% trans 'Members' %}</h2>
+                    <h3 class="section-subheading text-muted">
+                        {% blocktrans %}Researchers with different profiles work in the laboratory, learn more about them{% endblocktrans %}...
+                    </h3>
+                </div>
+            </div>
+            <!--Principal Investigator | Coordinator-->
+            <div class="row">
+                {% for member in context_members_coordinator %}
+                    {% if context_members_coordinator.count == 1 %}
+                    {% with class_style="col-sm-12" %}
+                    <div class="{{ class_style }}">
+                    {% endwith %}
+                    {% elif context_members_coordinator.count == 2 %}
+                    {% with class_style="col-sm-6" %}
+                    <div class="{{ class_style }}">
+                    {% endwith %}
+                    {% elif context_members_coordinator.count == 3 %}
+                    {% with class_style="col-sm-4" %}
+                    <div class="{{ class_style }}">
+                    {% endwith %}
+                    {% elif context_members_coordinator.count == 4 %}
+                    {% with class_style="col-sm-3" %}
+                    <div class="{{ class_style }}">
+                    {% endwith %}
+                    {% else %}
+                    <div>
+                    {% endif %}
+                        <div class="team-member">
+                            <div class="floating-icon">
+                                <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-name="{{ member }}" data-biography="{{ member.biography }}" data-title="{% trans 'Biography' %}" data-icon="fas fa-user-graduate"><!--fas fa-address-card-->
+                                    <img class="mx-auto rounded-circle" src="{{ member.image.url }}" alt="">
+                                </a>
+                            </div>
+                            <h5>
+                                {{ member.degree.name }} {{ member }}
+                                {% with 'img/flags/countries/'|add:member.country.code|lower|add:'.png' as image_static %}
+                                    <img src="{% static image_static %}" class="img-flag-team">
+                                {% endwith %}
+                            </h5>
+                            <p class="text-muted">{{ member.role }}</p>
+                            <ul class="list-inline social-buttons">
+                                <li class="list-inline-item">
+                                    {% if member.phone %}
+                                    <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-phone="{{ member.phone }}" data-title="{% trans 'Phone' %}" data-icon="fas fa-phone">
+                                        <i class="fas fa-phone"></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <i class="fas fa-phone"></i>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                                <li class="list-inline-item">
+                                    {% if member.email %}
+                                    <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-email="{{ member.email }}" data-title="E-mail" data-icon="fas fa-envelope">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                                <li class="list-inline-item">
+                                    {% if member.linkedin %}
+                                    <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                                <li class="list-inline-item lattes-buttons-alter">
+                                    {% if member.lattes %}
+                                    <a href="{{ member.lattes }}" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'img/lattes-white.png' %}">
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <img src="{% static 'img/lattes-white.png' %}">
+                                    </a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!--Members-->
+            <div class="row">
+                {% for member in context_members %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="team-member">
+                            <div class="floating-icon">
+                                <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-name="{{ member }}" data-biography="{{ member.biography }}" data-title="{% trans 'Biography' %}" data-icon="fas fa-user-graduate"><!--fas fa-address-card-->
+                                    <img class="mx-auto rounded-circle" src="{{ member.image.url }}" alt="">
+                                </a>
+                            </div>
+                            <h5>
+                                {{ member }}
+                                {% with 'img/flags/countries/'|add:member.country.code|lower|add:'.png' as image_static %}
+                                    <img src="{% static image_static %}" class="img-flag-team">
+                                {% endwith %}
+                            </h5>
+                            <p class="text-muted">{{ member.role }}</p>
+                            <ul class="list-inline social-buttons">
+                                <li class="list-inline-item">
+                                    {% if member.email %}
+                                    <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-email="{{ member.email }}" data-title="E-mail" data-icon="fas fa-envelope">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                                <!--
+                                <li class="list-inline-item">
+                                    {% if member.phone %}
+                                    <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-mobile="{{ member.phone }}" data-title="{% trans 'Mobile' %}" data-icon="fas fa-mobile-alt">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                                -->
+                                <li class="list-inline-item">
+                                    {% if member.linkedin %}
+                                    <a href="{{ member.linkedin }}" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                                <li class="list-inline-item lattes-buttons-alter">
+                                    {% if member.lattes %}
+                                    <a href="{{ member.lattes }}" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'img/lattes-white.png' %}">
+                                    </a>
+                                    {% else %}
+                                    <a href="#" class="disabled">
+                                        <img src="{% static 'img/lattes-white.png' %}">
+                                    </a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="large text-muted">{% trans 'Be part of our team, we are waiting for you' %}...</p>
+                </div>
+            </div>
+            <div class="container-news-title">
+                <a href="{% url 'members_app:url_oldmembers' %}">{% trans 'See the former members' %}...</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal_information" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-uppercase" id="myModalLabel">
+                        <div id="infotitle"></div>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <div class="row">
+                                    <a href="#" class="disabled">
+                                        <i id="infoicon" class="fas fa-info"></i>
+                                    </a>
+                                    <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                        <div id="information"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                            <div id="biography"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary mx-auto" data-dismiss="modal" type="button">
+                        <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content_team %}
+
+<!-- Papers -->
+{% block content_papers %}
+    <section id="section_paper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">{% trans 'Publications' %}</h2>
+                    <h3 class="section-subheading text-muted">
+                        {% blocktrans %}Review the research carried out by the LBMCF in collaboration with partnerships.{% endblocktrans %}
+                    </h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                    <div class="carousel-inner w-100" role="listbox">
+                        {% for key, hash in context_papers_year.items %}
+                            {% if key == 0 %}
+                            <div class="carousel-item row no-gutters active">
+                            {% else %}
+                            <div class="carousel-item row no-gutters">
+                            {% endif %}
+                            {% for year, count in hash.items %}
+                                <div class="col-3 float-left ot-portfolio-item">
+                                    <figure class="effect-bubba">
+                                        <img src="http://placehold.it/350x250/222/fff?text=&nbsp;" class="embed-responsive"/>
+                                        <figcaption>
+                                            <h2>{{ year }}</h2>
+                                            <p>{% trans 'SeePubs' %} ({{ count }})</p>
+                                            {% load custom_functions %}
+                                            {% if year|is_numberic %}
+                                                <a href="{% url 'publications_app:url_papersyear' year %}"></a>
+                                            {% else %}
+                                                <!--TODOS | ALL-->
+                                                <a href="{% url 'publications_app:url_papers' %}"></a>
+                                            {% endif %}
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <ol class="carousel-indicators" style="background-color:white;">
+                    {% for key, hash in context_papers_year.items %}
+                        {% if key == 0 %}
+                        <li data-target="#recipeCarousel" data-slide-to="{{ key }}" class="active"></li>
+                        {% else %}
+                        <li data-target="#recipeCarousel" data-slide-to="{{ key }}"></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            <!-- Bar Chart -->
+            <div class="container-bar-title">
+                <a href="#collapse-bar" data-toggle="collapse" id="collapsible">{% trans 'See statistics' %}</a>
+            </div>
+            <div id="collapse-bar" class="collapse">
+                <div class="card card-body">
+                    <div class="container-bar">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content_papers %}
+
+<!-- Partnerships -->
+{% block content_partnerships %}
+    <section id="portfolio" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">{% trans 'Partnerships' %}</h2>
+                    <h3 class="section-subheading text-muted">{% trans 'National / International' %}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <!--Brazil-->
+                {% for state in context_partnerships_national %}
+                    <div class="col-md-3 col-sm-6 portfolio-item">
+                        <a data-toggle="modal" class="portfolio-link" href="#modal_partnership{{ state.institution__state__id }}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="/media/{{ state.institution__state__image }}">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>
+                                {{ state.institution__state__name }}    
+                            </h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                <!--International-->
+                {% if context_partnerships_international.count > 0 %}
+                    <div class="col-md-3 col-sm-6 portfolio-item">
+                        <a data-toggle="modal" class="portfolio-link" href="#modal_partnership0">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="{% static 'img/flags/world_blue.jpg' %}">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>
+                                {% trans 'Inter7l' %}
+                            </h4>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    {% for state_id, hash_partnerships_detail in context_partnerships_detail.items %}
+        <div class="portfolio-modal modal fade" id="modal_partnership{{ state_id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="modal-body">
+                                    <h2 class="text-uppercase">
+                                        {% if state_id != 0 %}
+                                            {{ hash_partnerships_detail.state_name }} ({{ hash_partnerships_detail.state_code }})
+                                        {% else %}
+                                            {% trans 'Inter7l' %}
+                                        {% endif %}
+                                    </h2>
+                                    <p class="item-intro text-muted">
+                                        {% if state_id != 0 %}
+                                            {{ hash_partnerships_detail.country_name }}
+                                        {% else %}
+                                            {% trans 'World' %}
+                                        {% endif %}
+                                    </p>
+                                    <!-- Brazil -->
+                                    {% if state_id != 0 %}
+                                        {% for institutions_id, hash_partnerships in hash_partnerships_detail.data.items %}
+                                        <ul class="list-inline social-buttons text-left">
+                                            <div class="item-intro-subtitle1 text-muted">
+                                                {{ hash_partnerships.institution }} ({{ hash_partnerships.institution_name }})
+                                            </div>
+                                            <li class="list-inline-item lattes-buttons-modal">
+                                                {% for item, partnership in hash_partnerships.data.items %}
+                                                    <div class="row pb-2">
+                                                        <div>
+                                                            {% if partnership.link %}
+                                                                <a href="{{ partnership.link }}" target="_blank" rel="noopener noreferrer" class="text-center">
+                                                                    <img src="{% static 'img/lattes-white.png' %}">
+                                                                </a>
+                                                            {% else %}
+                                                                <a href="#" class="disabled text-center">
+                                                                    <img src="{% static 'img/lattes-white.png' %}">
+                                                                </a>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                            {{ partnership.degree }} {{ partnership.partner }}
+                                                        </div>
+                                                        <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                            {% with 'img/flags/countries/'|add:partnership.country_code|lower|add:'.png' as image_static %}
+                                                                <img src="{% static image_static %}" class="img-flag-partner">
+                                                            {% endwith %}
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </li>
+                                        </ul>
+                                        {% if not forloop.last %}
+                                            <hr class="hr-separator">
+                                        {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                    <!-- International -->
+                                        {% for country_id, hash_countries in hash_partnerships_detail.items %}
+                                        <ul class="list-inline social-buttons text-left">
+                                            <li class="list-inline-item">
+                                                <div class="item-intro-subtitle2 text-muted">
+                                                    {% trans 'Country' %}: {{ hash_countries.country_name }}
+                                                </div>
+                                                {% for item, hash_partnership in hash_countries.data.items %}
+                                                    <div class="item-intro-subtitle3 text-muted">
+                                                        {{ hash_partnership.institution }} ({{ hash_partnership.institution_name }})
+                                                    </div>
+                                                    {% for code, partnership in hash_partnership.data.items %}
+                                                        <div class="row pb-2">
+                                                            <div>
+                                                                {% if partnership.link %}
+                                                                    <a href="{{ partnership.link }}" target="_blank" rel="noopener noreferrer" class="text-center">
+                                                                        <i class="fab fa-cloudversify"></i><!--fa-link|fa-cloud-->
+                                                                    </a>
+                                                                {% else %}
+                                                                    <a href="#" class="disabled text-center">
+                                                                        <i class="fab fa-cloudversify"></i>
+                                                                    </a>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                                {{ partnership.degree }} {{ partnership.partner }}
+                                                            </div>
+                                                            <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                                {% with 'img/flags/countries/'|add:partnership.country_code|lower|add:'.png' as image_static %}
+                                                                    <img src="{% static image_static %}" class="img-flag-partner">
+                                                                {% endwith %}
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endfor %}
+                                                {% if not forloop.last %}
+                                                    <hr class="hr-separator">
+                                                {% endif %}
+                                            </li>
+                                        </ul>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content_partnerships %}
+
+<!-- Innovation -->
+{% block content_innovation %}
+    <section id="section_innovation" class="d-flex align-items-center">
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">
+                        {% trans 'Innovation' %}
+                    </h2>
+                    <h3 class="section-subheading text-muted">
+                        {% trans 'Products developed by LBMCF in collaboration with partners' %}
+                    </h3>
+                </div>
+            </div>
+            <div class="row icon-boxes">
+                <div class="col-lg-4_5"></div>
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon">
+                            <i class="ri-shield-star-line"></i><!--ri-shield-star-line | ri-bookmark-3-line | ri-microscope-line-->
+                        </div>
+                        <h4 class="title">
+                            <a href="{% url 'innovation_app:url_patents' %}">{% trans 'Patents' %}</a>
+                        </h4>
+                        <p class="description">
+                            {% trans 'See patents developed' %}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4_5"></div>
+            </div>
+        </div>
+    </section>
+{% endblock content_innovation %}
+
+<!-- Links -->
+{% block content_links %}
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                {% for item, link in context_links.items %}
+                    {% if forloop.first %}
+                        <div class="col-md-12">
+                            <hr>&nbsp;
+                        </div>
+                    {% endif %}
+                    {% if link.weight == 0 %}
+                        <div class="col-md-2 col-sm-6 div-link">
+                            <a href="{{ link.link }}" target="_blank" rel="noopener noreferrer">
+                                <img class="img-link1" src="{{ link.logo.url }}" alt="{{ link.name }}">
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="col-md-{{ link.weight }} col-sm-6">
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:6 and forloop.last == False %}
+                        <div class="col-md-12">
+                            &nbsp;
+                        </div>
+                    {% endif %}
+                    {% if forloop.last %}
+                        <div class="col-md-12">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock content_links %}
+
+{% block javascriptplus %}
+    <script>
+        // Team
+        $(document).on("click", ".open-modal_information", function () {
+            var _not_registered = "{% trans 'NotReg' %}";
+            var _title = $(this).data('title');
+            var _icon = $(this).data('icon');
+            var _phone = $(this).data('phone');
+            var _mobile = $(this).data('mobile');
+            var _email = $(this).data('email');
+            var _name = $(this).data('name');
+            var _biography = $(this).data('biography');
+
+            $(".modal-body #biography").text('');
+
+            if (_phone){
+                $(".modal-body #information").text(_phone);
+            } else {
+                if (_mobile){
+                    $(".modal-body #information").text(_mobile);
+                } else {
+                    if (_email){
+                        $(".modal-body #information").text(_email);
+                    } else {
+                        if (_biography){
+                            $(".modal-body #information").text(_name);
+                            $(".modal-body #biography").text(_biography);
+                        } else {
+                            $(".modal-body #information").text(_not_registered);
+                        }
+                    }
+                }
+            }
+
+            $(".modal-header #infotitle").text(_title);
+            $(".modal-body #infoicon").attr('class', '');
+            $(".modal-body #infoicon").attr('class', _icon);
+        });
+
+        // Bar Chart
+        var arr_year = "{{ context_papers_list.year }}";
+        var arr_count = "{{ context_papers_list.count }}";
+        var LABELS = arr_year.split('|');
+        var DATA = arr_count.split('|');
+
+        var total = 0;
+        DATA.forEach(function (item, index) {
+            total += parseInt(item);
+        });
+
+        var color = Chart.helpers.color;
+        var barChartData = {
+            labels: LABELS,
+            datasets: [{
+                label: "# {% trans 'Articles' %}",
+                backgroundColor: color('#36a3eb').alpha(0.5).rgbString(),
+                borderColor: '#36a3eb',
+                borderWidth: 1,
+                data: DATA
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: "{% trans 'Articles published per year' %} (Total: " + total + ")"
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        };
+
+        // See/Hide Stats
+        $('#collapsible').click(function(){
+            $(this).text(function(i, old){
+                return old=="{% trans 'See statistics' %}" ?  "{% trans 'Hide statistics' %}" : "{% trans 'See statistics' %}";
+            });
+        });
+    </script>
+{% endblock javascriptplus %}

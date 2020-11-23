@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-23 02:04-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/contact/forms.py:7
+msgid "Your Name *"
+msgstr "Teu Nome *"
+
+#: apps/contact/forms.py:11
+msgid "Your E-mail *"
+msgstr "Teu E-mail *"
+
+#: apps/contact/forms.py:15
+msgid "YourPhoneNotReq"
+msgstr "Teu Telefone"
+
+#: apps/contact/forms.py:19
+msgid "Your Message *"
+msgstr "Tua Mensagem *"
+
+#: apps/core/views.py:89 templates/publications/papers.html:23
+msgid "ALL"
+msgstr "TODOS"
+
+#: apps/registration/forms.py:8 apps/registration/forms.py:31
+msgid "Required. 254 characters maximum."
+msgstr "Obrigatório. 254 carateres no máximo."
+
+#: apps/registration/forms.py:17 apps/registration/forms.py:41
+msgid "The e-mail is already registered."
+msgstr "O email já está cadastrado."
+
+#: apps/registration/views.py:23 templates/registration/login.html:21
+#: templates/registration/profile.html:53
+msgid "User"
+msgstr "Usuário"
+
+#: apps/registration/views.py:25 templates/registration/login.html:24
+msgid "Password"
+msgstr "Senha"
+
+#: apps/registration/views.py:26
+#: templates/registration/password_change_form.html:33
+msgid "Confirm password"
+msgstr "Confirme a senha"
+
+#: lbmcf/settings.py:154
+msgid "Portuguese"
+msgstr "Português"
+
+#: lbmcf/settings.py:155
+msgid "English"
+msgstr "Inglês"
+
+#: lbmcf/settings.py:156
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: templates/about/about_update.html:4
+msgid "Update About us"
+msgstr "Update About us"
+
+#: templates/about/about_update.html:14
+msgid "About us"
+msgstr "Sobre nós"
+
+#: templates/about/about_update.html:15 templates/about/about_update.html:31
+#: templates/legal/politics_update.html:15
+#: templates/legal/politics_update.html:31
+#: templates/registration/profile.html:82
+#: templates/registration/profile_email.html:22
+msgid "Update"
+msgstr "Atualizar"
+
+#: templates/about/about_update.html:24
+msgid "About us, updated correctly"
+msgstr "Sobre nós, atualizado corretamente"
+
+#: templates/base/base.html:11 templates/base/header.html:9
+#: templates/contact/contact.html:79 templates/core/home.html:17
+msgid "Molecular and Computational Biology of Fungi Laboratory"
+msgstr "Laboratório de Biologia Molecular e Computacional de Fungos"
+
+#: templates/base/footer.html:33 templates/contact/contact.html:4
+#: templates/contact/contact.html:13
+msgid "Contact"
+msgstr "Contato"
+
+#: templates/base/header.html:12 templates/research/projects.html:44
+msgid "Know more"
+msgstr "Saiba mais"
+
+#: templates/base/navbar.html:21 templates/core/home.html:55
+#: templates/news/news.html:4 templates/news/news.html:14
+msgid "News"
+msgstr "Notícias"
+
+#: templates/base/navbar.html:26 templates/core/home.html:95
+#: templates/research/files.html:14 templates/research/projects.html:14
+#: templates/research/protocols.html:14
+msgid "Research"
+msgstr "Pesquisa"
+
+#: templates/base/navbar.html:29 templates/core/home.html:111
+#: templates/research/projects.html:4 templates/research/projects.html:15
+msgid "Projects"
+msgstr "Projetos"
+
+#: templates/base/navbar.html:30 templates/core/home.html:125
+#: templates/research/protocols.html:4 templates/research/protocols.html:15
+msgid "Protocols"
+msgstr "Protocolos"
+
+#: templates/base/navbar.html:31 templates/core/home.html:139
+#: templates/research/files.html:4 templates/research/files.html:15
+msgid "Files"
+msgstr "Arquivos"
+
+#: templates/base/navbar.html:35 templates/core/home.html:155
+msgid "Members"
+msgstr "Equipe"
+
+#: templates/base/navbar.html:38 templates/core/home.html:373
+#: templates/publications/papers.html:4 templates/publications/papers.html:14
+msgid "Publications"
+msgstr "Publicações"
+
+#: templates/base/navbar.html:41 templates/core/home.html:441
+msgid "Partnerships"
+msgstr "Parcerias"
+
+#: templates/base/navbar.html:45 templates/core/home.html:614
+msgid "Innovation"
+msgstr "Inovação"
+
+#: templates/base/navbar.html:48 templates/core/home.html:629
+#: templates/innovation/patents.html:4 templates/innovation/patents.html:14
+msgid "Patents"
+msgstr "Patentes"
+
+#: templates/base/navbar.html:57
+msgid "Profiles"
+msgstr "Perfis"
+
+#: templates/base/navbar.html:61 templates/registration/profile.html:4
+#: templates/registration/profile.html:20
+msgid "Profile"
+msgstr "Perfil"
+
+#: templates/contact/contact.html:21
+msgid "E-mail sent correctly, we will contact you soon."
+msgstr "E-mail enviado corretamente, entraremos em contato com você em breve."
+
+#: templates/contact/contact.html:69
+msgid "SendMessage"
+msgstr "Enviar Mensagem"
+
+#: templates/contact/contact.html:78
+msgid "Federal University of Minas Gerais"
+msgstr "Universidade Federal de Minas Gerais"
+
+#: templates/contact/contact.html:78
+msgid "Institute of Biological Sciences"
+msgstr "Instituto de Ciências Biológicas"
+
+#: templates/contact/contact.html:79
+msgid "Department of Bioinformatics"
+msgstr "Departamento de Bioinformática"
+
+#: templates/contact/contact.html:82 templates/core/home.html:199
+msgid "Phone"
+msgstr "Telefone"
+
+#: templates/core/home.html:30 templates/legal/politics.html:48
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/core/home.html:58
+msgid ""
+"National and international events in which LBMCF researchers participated"
+msgstr ""
+"Eventos nacionais e internacionais onde os pesquisadores do LBMCF "
+"participaram"
+
+#: templates/core/home.html:83
+msgid "See more"
+msgstr "Ver mais"
+
+#: templates/core/home.html:97
+msgid ""
+"Research carried out by LBMCF members, as well as public documents of "
+"interest to the scientific community"
+msgstr ""
+"Pesquisas realizadas pelos membros do LBMCF, assim como documentos públicos "
+"de interesse para a comunidade científica"
+
+#: templates/core/home.html:113
+msgid ""
+"Projects developed by LBMCF or in national and international partnerships, "
+"which are of great technological, biotechnological, social and development "
+"importance mainly for Brazil."
+msgstr ""
+"Projetos desenvolvidos pelo LBMCF ou em parcerias nacionais e "
+"internacionais, os quais tem uma grande importancia tecnológica, "
+"biotecnológica, social e de desenvolvimento principalmente para o Brasil."
+
+#: templates/core/home.html:127
+msgid ""
+"Techniques, methodologies and workflows followed by LBMCF researchers, who "
+"can serve as a guide for other researchers."
+msgstr ""
+"Técnicas, metodologías e fluxos de trabalho seguidos pelos pesquisadores do "
+"LBMCF, que podem servir de guia para outros pesquisadores."
+
+#: templates/core/home.html:141
+msgid "Catalog of documents of exclusive interest to the LBMCF."
+msgstr "Catálogo de documentos de interesse exclusivo para o LBMCF."
+
+#: templates/core/home.html:157
+msgid ""
+"Researchers with different profiles work in the laboratory, learn more about "
+"them"
+msgstr ""
+"Pesquisadores com diversos perfis atuam no laboratório, saiba um pouco mais "
+"deles"
+
+#: templates/core/home.html:185 templates/core/home.html:252
+#: templates/members/old_members.html:26
+msgid "Biography"
+msgstr "Biografia"
+
+#: templates/core/home.html:278
+msgid "Mobile"
+msgstr "Celular"
+
+#: templates/core/home.html:317
+msgid "Be part of our team, we are waiting for you"
+msgstr "Seja parte de nosso equipe, aguardamos você"
+
+#: templates/core/home.html:321
+msgid "See the former members"
+msgstr "Veja os ex-membros"
+
+#: templates/core/home.html:359 templates/core/home.html:595
+#: templates/members/old_members.html:112 templates/research/projects.html:70
+msgid "Close"
+msgstr "Fechar"
+
+#: templates/core/home.html:375
+msgid ""
+"Review the research carried out by the LBMCF in collaboration with "
+"partnerships."
+msgstr ""
+"Revise as pesquisas realizadas pelo LBMCF em colaboração com parcerias."
+
+#: templates/core/home.html:394
+msgid "SeePubs"
+msgstr "Ver publicações"
+
+#: templates/core/home.html:422 templates/core/home.html:768
+msgid "See statistics"
+msgstr "Ver estatísticas"
+
+#: templates/core/home.html:442
+msgid "National / International"
+msgstr "Nacionais / Internacionais"
+
+#: templates/core/home.html:477 templates/core/home.html:504
+msgid "Inter7l"
+msgstr "Internacionais"
+
+#: templates/core/home.html:511
+msgid "World"
+msgstr "Mundo"
+
+#: templates/core/home.html:557
+msgid "Country"
+msgstr "País"
+
+#: templates/core/home.html:617
+msgid "Products developed by LBMCF in collaboration with partners"
+msgstr "Produtos desenvolvidos pelo LBMCF em colaboração com parceiros"
+
+#: templates/core/home.html:632
+msgid "See patents developed"
+msgstr "Veja as patentes desenvolvidas"
+
+#: templates/core/home.html:682 templates/members/old_members.html:124
+msgid "NotReg"
+msgstr "Não cadastrado"
+
+#: templates/core/home.html:732
+msgid "Articles"
+msgstr "Artigos"
+
+#: templates/core/home.html:752
+msgid "Articles published per year"
+msgstr "Artigos publicados por ano"
+
+#: templates/core/home.html:768
+msgid "Hide statistics"
+msgstr "Ocultar estatísticas"
+
+#: templates/innovation/patents.html:30 templates/publications/papers.html:41
+msgid "Authors"
+msgstr "Autores"
+
+#: templates/innovation/patents.html:32
+msgid "RegNum"
+msgstr "Número de Registro"
+
+#: templates/innovation/patents.html:34
+msgid "PatType"
+msgstr "Tipo de Patente"
+
+#: templates/innovation/patents.html:36
+msgid "Registry Institution"
+msgstr "Instituição de Registro"
+
+#: templates/legal/politics.html:4
+msgid "Security Policy"
+msgstr "Política de Segurança"
+
+#: templates/legal/politics.html:14 templates/legal/politics_update.html:14
+msgid "Legal Warning"
+msgstr "Aviso Legal"
+
+#: templates/legal/politics_update.html:4
+msgid "UpPolicy"
+msgstr "Atualização da Política"
+
+#: templates/legal/politics_update.html:24
+msgid "MsgPolUpCorrectly"
+msgstr "Política atualizada corretamente"
+
+#: templates/members/old_members.html:4 templates/members/old_members.html:14
+msgid "OldMem"
+msgstr "Membros Antigos"
+
+#: templates/members/old_members.html:16
+msgid "TextMem"
+msgstr "Pesquisadores que foram parte do LBMCF, saiba um pouco mais deles"
+
+#: templates/news/news_all.html:4 templates/news/news_all.html:14
+msgid "All the news"
+msgstr "Todas as notícias"
+
+#: templates/publications/papers.html:48
+msgid "Key words"
+msgstr "Palavras-chave"
+
+#: templates/publications/papers.html:65 templates/research/files.html:41
+#: templates/research/protocols.html:39
+msgid "FileField"
+msgstr "Arquivo"
+
+#: templates/registration/login.html:4 templates/registration/login.html:18
+#: templates/registration/login.html:27
+#: templates/registration/password_reset_complete.html:21
+msgid "Log In"
+msgstr "Iniciar Sessão"
+
+#: templates/registration/login.html:31
+msgid "Incorrect username or password, try again."
+msgstr "Nome de usuário ou senha incorretos, tente novamente."
+
+#: templates/registration/login.html:36
+msgid "Forgot your password?, You can restore it from"
+msgstr "Esqueceu sua senha?, Você pode restaurá-lo desde"
+
+#: templates/registration/login.html:38
+#: templates/registration/password_change_done.html:17
+#: templates/registration/password_reset_confirm.html:40
+#: templates/registration/profile.html:69
+#: templates/registration/profile.html:74
+msgid "here"
+msgstr "aqui"
+
+#: templates/registration/login.html:43
+msgid "User correctly registered, you can log in."
+msgstr "Usuário registrado corretamente, pode-se logar."
+
+#: templates/registration/password_change_done.html:4
+#: templates/registration/password_change_form.html:4
+#: templates/registration/password_change_form.html:18
+msgid "ChanOfPass"
+msgstr "Mudança de senha"
+
+#: templates/registration/password_change_done.html:15
+msgid "Password changed correctly"
+msgstr "Senha alterada corretamente"
+
+#: templates/registration/password_change_done.html:17
+msgid "You can return to your profile by clicking"
+msgstr "Você pode retornar ao seu perfil clicando"
+
+#: templates/registration/password_change_form.html:21
+msgid ""
+"Please enter your old password for security and enter the new password twice "
+"for verification."
+msgstr ""
+"Por favor, digite sua senha antiga para segurança e insira a nova senha duas "
+"vezes para verificação."
+
+#: templates/registration/password_change_form.html:25
+msgid "OldPass"
+msgstr "Senha antiga"
+
+#: templates/registration/password_change_form.html:29
+#: templates/registration/password_reset_confirm.html:27
+msgid "NewPass"
+msgstr "Nova senha"
+
+#: templates/registration/password_change_form.html:36
+msgid "ChangePass"
+msgstr "Mudar senha"
+
+#: templates/registration/password_reset_complete.html:4
+#: templates/registration/password_reset_confirm.html:4
+#: templates/registration/password_reset_done.html:4
+#: templates/registration/password_reset_form.html:4
+#: templates/registration/password_reset_form.html:19
+msgid "RestPs2wrd"
+msgstr "Restaurar senha"
+
+#: templates/registration/password_reset_complete.html:16
+msgid "PassResetCompleted"
+msgstr "Redefinição de senha concluída"
+
+#: templates/registration/password_reset_complete.html:20
+msgid "Your password has been reset. Now you can"
+msgstr "Sua senha foi alterada. Agora você pode fazer"
+
+#: templates/registration/password_reset_confirm.html:20
+msgid "Enter the new password"
+msgstr "Digite a nova senha"
+
+#: templates/registration/password_reset_confirm.html:24
+msgid "MsgNewPasswordToVerify"
+msgstr ""
+"Por favor, digite sua nova senha duas vezes para verificar se digitou "
+"corretamente."
+
+#: templates/registration/password_reset_confirm.html:29
+msgid "CnfNewPwd"
+msgstr "Confirme a nova senha"
+
+#: templates/registration/password_reset_confirm.html:30
+#: templates/registration/password_reset_form.html:27
+msgid "ConfSend"
+msgstr "Confirme"
+
+#: templates/registration/password_reset_confirm.html:35
+msgid "PssRstFailed"
+msgstr "Falha ao redefinir a senha"
+
+#: templates/registration/password_reset_confirm.html:39
+msgid ""
+"The password reset link was invalid, probably because it was used before. "
+"Request a new password reset"
+msgstr ""
+"O link de redefinição de senha era inválido, provavelmente porque foi usado "
+"antes. Solicite uma nova redefinição de senha"
+
+#: templates/registration/password_reset_done.html:16
+msgid "Password reset sent"
+msgstr "Redefinição de senha enviada"
+
+#: templates/registration/password_reset_done.html:20
+msgid ""
+"We emailed you instructions for resetting your password, if your email is "
+"correct. You should receive it soon."
+msgstr ""
+"Enviamos a você por e-mail as instruções para redefinir a senha, se seu e-"
+"mail é correto. Você deveria recebê-la em breve."
+
+#: templates/registration/password_reset_done.html:23
+msgid ""
+"If you have not received an email, check that you have entered the email "
+"address you registered with and check your <b>spam</b> folder."
+msgstr ""
+"Se você não recebeu um e-mail, verifique ter inserido o e-mail com o qual se "
+"registrou e verifique sua pasta de <b>spam</b>."
+
+#: templates/registration/password_reset_form.html:23
+msgid ""
+"Did you forget your password? Enter your email address below and we'll send "
+"you the instructions to establish a new one."
+msgstr ""
+"Você esqueceu sua senha? Digite seu endereço de e-mail abaixo e nós lhe "
+"enviaremos as instruções para estabelecer um novo."
+
+#: templates/registration/profile.html:30
+msgid "Delete?"
+msgstr "¿Apagar?"
+
+#: templates/registration/profile.html:45 templates/research/files.html:39
+#: templates/research/protocols.html:37
+msgid "Name"
+msgstr "Nome"
+
+#: templates/registration/profile.html:69
+msgid "If you want to edit your email click"
+msgstr "Se você quiser editar seu email clique"
+
+#: templates/registration/profile.html:74
+msgid "If you want to change your password click"
+msgstr "Se você quiser mudar sua senha clique"
+
+#: templates/registration/signup.html:4 templates/registration/signup.html:18
+msgid "Sign Up"
+msgstr "Cadastre-se"
+
+#: templates/registration/signup.html:22
+msgid "Register"
+msgstr "Registre-se"
+
+#: templates/research/files.html:40 templates/research/protocols.html:38
+msgid "Description"
+msgstr "Descrição"
+
+#: templates/research/files.html:99
+msgid "You don't have permission to view this content."
+msgstr "Você não tem permissão para visualizar este conteúdo."
+
+#: templates/research/projects.html:42
+msgid "Funding Agency"
+msgstr "Agência Financiadora"

@@ -1,0 +1,21 @@
+{% load static %}
+<form action="/i18n/setlang/" method="post" style="display: inline;">
+    {% csrf_token %}
+    <div>
+        <select class="select-css" name="language" onchange="javascript:form.submit()"
+            {% if LANGUAGE_CODE == 'pt' %}
+                style="background-image: url({% static 'img/flags/i18n/pt.png' %});"
+            {% elif LANGUAGE_CODE == 'es' %}
+                style="background-image: url({% static 'img/flags/i18n/es.png' %});"
+            {% else %}        
+                style="background-image: url({% static 'img/flags/i18n/en-gb.png' %});"
+            {% endif %}>
+            {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}"
+                    {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
+                    {{ lang.0|upper }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+</form>

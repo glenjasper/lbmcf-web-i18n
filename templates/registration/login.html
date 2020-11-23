@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Log In' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<style>.errorlist{color:red;}</style>
+<main role="main">
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-4 mx-auto">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <h3 class="text-uppercase mb-4 mt-5">{% trans 'Log In' %}</h3>
+                        </div>
+                        <p>
+                            <input type="text" name="username" autofocus maxlength="254" required id="id_username" class="form-control" placeholder="{% trans 'User' %}"/>
+                        </p>
+                        <p>
+                            <input type="password" name="password" required id="id_password" class="form-control" placeholder="{% trans 'Password' %}"/>
+                        </p>
+                        <p>
+                            <input type="submit" class="btn btn-primary btn-block col-md-5 mx-auto" value="{% trans 'Log In' %}">
+                        </p>
+                        {% if form.non_field_errors %}
+                            <p style="color:red;">
+                                {% trans 'Incorrect username or password, try again.' %}
+                            </p>
+                        {% endif %}
+                    </form>
+                    <p>
+                        {% trans 'Forgot your password?, You can restore it from' %}
+                        <a href="{% url 'password_reset' %}">
+                            {% trans 'here' %}
+                        </a>
+                    </p>
+                    {% if 'register' in request.GET %}
+                        <p style="color:green;">
+                            {% trans 'User correctly registered, you can log in.' %}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

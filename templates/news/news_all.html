@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'All the news' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h2 class="section-heading text-uppercase">{% trans 'All the news' %}</h2>
+                        <h4 class="section-heading">&nbsp;</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for news in context_newsall %}
+                <div class="col-md-3">
+                    <div class="team-item">
+                        <div class="team-image floating-icon">
+                            <a href="{% url 'news_app:url_newsdetail' news.id %}">
+                                <img src="{{ news.logo.url }}" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="team-text">
+                            <h3>{{ news.title }}</h3>
+                            <div class="team-location">{{ news.location }}</div>
+                            <div class="team-position">– {{ news.date }} –</div>
+                            <p>{{ news.description|slice:"0:110" }}...</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

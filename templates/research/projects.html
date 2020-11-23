@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Projects' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h2 class="section-heading text-uppercase">{% trans 'Research' %}</h2>
+                        <h4 class="section-subheading text-muted">{% trans 'Projects' %}</h4>
+                    </div>
+                </div>
+            </div>
+            {% for project in context_projects %}
+            <div class="g-padding-y-10--xs">
+                <div class="row g-margin-b-30--xs">
+                    <div class="col-sm-7">
+                        <!--No shadow-->
+                        <div class="shadow-none p-3 mb-5 bg-light rounded">
+                        <!--Small shadow- ->
+                        <div class="shadow-sm p-3 mb-5 bg-white rounded">
+                        <!- -Regular shadow- ->
+                        <div class="shadow p-3 mb-5 bg-white rounded">
+                        <!- -Larger shadow- ->
+                        <div class="shadow-lg p-3 mb-5 bg-white rounded">-->
+                            <div class="g-margin-t-10--md g-margin-b-20--xs">
+                                <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-20--xs">
+                                    {{ project.date }}
+                                </p>
+                                <h2 class="g-font-size-30--md">
+                                    {{ project.title }}
+                                </h2>
+                                <p class="text-muted-alter g-font-size-15--md">
+                                    {{ project.description }}
+                                </p>
+                                <p class="text-muted-alter g-font-size-13--md">
+                                    <b>{% trans 'Funding Agency' %}: </b>{{ project.financer.name }}
+                                </p>
+                                <a class="btn btn-primary" href="#">{% trans 'Know more' %}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="text-center hover-zoomin">
+                            <a href="#" data-target="#modalIMG{{ project.id }}" data-toggle="modal" class="color-gray-darker td-hover-none">
+                                <img src="{{ project.image.url }}" class="img-fluid rounded center-cropped" alt="">
+                            </a>
+                            <div class="mask flex-center">
+                                <p class="white-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal #{{ project.id }} -->
+            <div id="modalIMG{{ project.id }}" aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body mb-0 p-0">
+                            <img src="{{ project.image.url }}" alt="" class="img-project">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary mx-auto" data-dismiss="modal" type="button"> <!--btn-outline-primary-->
+                                <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{{ context_profile_detail.user }} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<main role="main">
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-9 mx-auto mt-4">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <!-- Avatar -->
+                            <div class="col-md-3">
+                                {% if context_profile_detail.avatar %}
+                                    <img src="{{ context_profile_detail.avatar.url }}" class="img-fluid">
+                                {% else %}
+                                    <img src="{% static 'img/no-avatar.png' %}" class="img-fluid">
+                                {% endif %}
+                                {% if request.user != context_profile_detail.user %}
+                                    <a href="{% url 'messenger_app:url_messenger_start' context_profile_detail.user.username %}" class="btn btn-primary btn-sm btn-block mt-3">
+                                        Enviar mensagem
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <!-- Campos -->
+                            <div class="col-md-9">
+                                <h4 class="section-subheading-user text-muted">
+                                    {{ context_profile_detail.user }}
+                                </h4>
+                                {% if context_profile_detail.biography %}
+                                    <p>
+                                        {{ context_profile_detail.biography }}
+                                    </p>
+                                {% endif %}
+                                {% if context_profile_detail.link %}
+                                <p>
+                                    <a href="{{ context_profile_detail.link }}" target="_blank">
+                                        {{ context_profile_detail.link }}
+                                    </a>
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Profiles | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<main role="main">
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-9 mx-auto">
+                    <div class="text-center">
+                        <h3 class="text-uppercase mb-4 mt-5">Perfis</h3>
+                    </div>
+                    <div class="row">
+                        {% for profile in context_profile_list %}
+                            <div class="col-md-4 mt-2 mb-3 ">
+                                <div class="row p-1">
+                                    <div class="col-md-12">
+                                        {% if profile.avatar %}
+                                            <img src="{{ profile.avatar.url }}" class="img-fluid profile-avatar">
+                                        {% else %}
+                                            <img src="{% static 'img/no-avatar.png' %}" class="img-fluid profile-avatar">
+                                        {% endif %}
+                                        <div class="profile-data-name">
+                                            {{ profile.user|truncatechars:"16" }}
+                                        </div>
+                                        <div class="profile-data-link">
+                                            <a href="{% url 'profiles_app:url_profile_detail' profile.user %}">
+                                                Ver perfil
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Menú de paginación -->
+                    {% if is_paginated %}
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item ">
+                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+                                    </li>
+                                {% endif %}
+                                {% for i in paginator.page_range %}
+                                    <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li class="page-item ">
+                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

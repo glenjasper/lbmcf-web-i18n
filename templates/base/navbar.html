@@ -1,0 +1,82 @@
+{% load static %}
+{% load i18n %}
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bs-dark fixed-top">
+        <div class="container">
+            <!--<a class="navbar-brand js-scroll-trigger" href="{% url 'core_app:url_home' %}">LBMCF</a>-->
+            <a class="navbar-brand page-scroll" href="{% url 'core_app:url_home' %}">
+                <img src="{% static 'img/lbmcf_h1.ico' %}">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu<i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <!--
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#page-top"{% else %}href="{% url 'core_app:url_home' %}"{% endif %}>Home</a>
+                    </li>
+                    -->
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#section_news"{% else %}href="{% url 'core_app:url_home' %}#section_news"{% endif %}>{% trans 'News' %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <!--<a class="nav-link js-scroll-trigger dropdown-toggle" href="#" id="navbarDropdownResearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#section_research"{% else %}href="{% url 'core_app:url_home' %}#section_research"{% endif %} id="navbarDropdownResearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% trans 'Research' %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-content" aria-labelledby="navbarDropdownResearch">
+                            <a class="dropdown-item" href="{% url 'research_app:url_projects' %}">{% trans 'Projects' %}</a>
+                            <a class="dropdown-item" href="{% url 'research_app:url_protocols' %}">{% trans 'Protocols' %}</a>
+                            <a class="dropdown-item" href="{% url 'research_app:url_files' %}">{% trans 'Files' %}</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#section_team"{% else %}href="{% url 'core_app:url_home' %}#section_team"{% endif %}>{% trans 'Members' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#section_paper"{% else %}href="{% url 'core_app:url_home' %}#section_paper"{% endif %}>{% trans 'Publications' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#portfolio"{% else %}href="{% url 'core_app:url_home' %}#portfolio"{% endif %}>{% trans 'Partnerships' %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#section_innovation"{% else %}href="{% url 'core_app:url_home' %}#section_innovation"{% endif %} id="navbarDropdownInnovation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% trans 'Innovation' %}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-content" aria-labelledby="navbarDropdownInnovation">
+                            <a class="dropdown-item" href="{% url 'innovation_app:url_patents' %}">{% trans 'Patents' %}</a>
+                        </div>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'messenger_app:url_messenger_list' %}">Chat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'profiles_app:url_profile_list' %}">{% trans 'Profiles' %}</a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_profile' %}">{% trans 'Profile' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_signup' %}">Sign Up</a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Log In</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        {% include 'base/change_language.html' %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

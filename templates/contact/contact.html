@@ -1,0 +1,88 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Contact' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section id="contact" class="footer-bottom-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">{% trans 'Contact' %}</h2>
+                    <div>&nbsp;</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    {% if 'ok' in request.GET %}
+                        <p class="message-success">
+                            {% trans 'E-mail sent correctly, we will contact you soon.' %}
+                        </p>
+                    {% endif %}
+                    <!--
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <!- -{{ context_form.as_table }}- ->
+                        <table>
+                        {{ context_form.as_table }}
+                        </table>
+                        <input type="submit" value="Send"/>
+                    </form>
+                    -->
+                    <!--{{ request.POST }}-->
+                    <form action="" method="POST" name="sentMessage" novalidate="novalidate">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ context_form.name }}
+                                    <div class="text-warning">
+                                        {{ context_form.name.errors }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ context_form.email }}
+                                    <div class="text-warning">
+                                        {{ context_form.email.errors }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ context_form.phone }}
+                                    <div class="text-warning">
+                                        {{ context_form.phone.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ context_form.content }}
+                                    <div class="text-warning">
+                                        {{ context_form.content.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">{% trans 'SendMessage' %}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center g-margin-t-20--xs">
+                    <h3 class="section-contact text-muted">
+                        {% trans 'Federal University of Minas Gerais' %} (UFMG), {% trans 'Institute of Biological Sciences' %} (ICB)
+                        {% trans 'Department of Bioinformatics' %} (PPBIOINFO), {% trans 'Molecular and Computational Biology of Fungi Laboratory' %}
+                    </h3>
+                    <h3 class="section-contact">
+                        E-mails: arigoesneto@icb.ufmg.br / arigoesneto@pq.cnpq.br / arigoesneto@gmail.com / {% trans 'Phone' %}: +55 31 3409 3050
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

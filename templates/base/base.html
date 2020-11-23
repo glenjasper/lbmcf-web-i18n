@@ -1,0 +1,71 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/png" sizes="16x16">
+    <title>{% block title %}{% trans 'Molecular and Computational Biology of Fungi Laboratory' %}{% endblock %}</title>
+    <style>header.masthead {background-image: url("{% static 'img/background_3.jpg' %}");}</style>
+    {% include 'base/css.html' %}
+    {% block cssplus %}{% endblock %}
+</head>
+<body id="page-top">
+    {% include 'base/navbar.html' %}
+
+    {% block header %}
+    {% include 'base/header.html' %}
+    {% endblock header %}
+
+    {% block content %}
+
+    <!-- About -->
+    {% block content_about %}
+    {% endblock content_about %}
+
+    <!-- News -->
+    {% block content_news %}
+    {% endblock content_news %}
+
+    <!-- Research -->
+    {% block content_research %}
+    {% endblock content_research %}
+
+    <!-- Team -->
+    {% block content_team %}
+    {% endblock content_team %}
+
+    <!-- Papers -->
+    {% block content_papers %}
+    {% endblock content_papers %}
+
+    <!-- Partnerships -->
+    {% block content_partnerships %}
+    {% endblock content_partnerships %}
+
+    <!-- Innovation -->
+    {% block content_innovation %}
+    {% endblock content_innovation %}
+
+    <!-- Links -->
+    {% block content_links %}
+    {% endblock content_links %}
+
+    <!-- Contact -->
+    {% block content_contact %}
+    {% endblock content_contact %}
+
+    {% endblock content %}
+
+    <p id="back-top">
+        <a href="#top"><i class="fa fa-angle-up"></i></a>
+    </p>
+
+    {% include 'base/footer.html' %}
+    {% include 'base/javascript.html' %}
+    {% block javascriptplus %}{% endblock %}
+</body>
+</html>

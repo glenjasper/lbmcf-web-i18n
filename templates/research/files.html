@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Files' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h2 class="section-heading text-uppercase">{% trans 'Research' %}</h2>
+                        <h4 class="section-subheading text-muted">{% trans 'Files' %}</h4>
+                    </div>
+                </div>
+            </div>
+            {% load custom_functions %}
+            {% if request.user.is_superuser or request.user|has_group:VG_GROUP_REGULAR %}
+            <div class="accordion" id="accordion_id">
+                {% for file, detail in context_files.items %}
+                <div class="card panel-default">
+                    <div class="panel-heading accordion_id-header" id="heading_{{ forloop.counter }}">
+                        <h4 class="panel-title2">
+                            <a data-toggle="collapse" href="#collapse_{{ forloop.counter }}" aria-expanded="false">
+                                {{ file }}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse_{{ forloop.counter }}" class="collapse accordion_id-content" aria-labelledby="heading_{{ forloop.counter }}">
+                        <div class="card-body">
+                            <p>{{ detail.description }}</p>
+                            <div class="table-responsive" style="font-size: 14px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col" style="width: 30%;"><a>{% trans 'Name' %}</a></th>
+                                            <th scope="col" style="width: 60%;"><a>{% trans 'Description' %}</a></th>
+                                            <th scope="col" style="width: 10%;"><a>{% trans 'FileField' %}</a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for file in detail.items %}
+                                        <tr>
+                                            <th scope="row">{{ forloop.counter }}</th>
+                                            <td>{{ file.name }}</td>
+                                            <td>{{ file.description }}</td>
+                                            <td>
+                                                <a href="{{ file.pdf.url }}" target="_blank" rel="noopener noreferrer">
+                                                {% load custom_functions %}
+                                                {% if file.pdf|endswith:'.pdf' %}
+                                                    <img src="{% static 'img/files/pdffile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.docx' or file.pdf|endswith:'.doc' %}
+                                                    <img src="{% static 'img/files/docfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.xlsx' or file.pdf|endswith:'.xls' %}
+                                                    <img src="{% static 'img/files/xlsfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.pptx' or file.pdf|endswith:'.ppt' %}
+                                                    <img src="{% static 'img/files/pptfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.txt' %}
+                                                    <img src="{% static 'img/files/txtfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.py' %}
+                                                    <img src="{% static 'img/files/pyfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.pl' %}
+                                                    <img src="{% static 'img/files/plfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.r' %}
+                                                    <img src="{% static 'img/files/rfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.js' %}
+                                                    <img src="{% static 'img/files/jsfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.xml' %}
+                                                    <img src="{% static 'img/files/xmlfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.txt' %}
+                                                    <img src="{% static 'img/files/txtfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.java' %}
+                                                    <img src="{% static 'img/files/javafile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.c' %}
+                                                    <img src="{% static 'img/files/cfile.png' %}" class="file-type">
+                                                {% elif file.pdf|endswith:'.cpp' %}
+                                                    <img src="{% static 'img/files/cppfile.png' %}" class="file-type">
+                                                {% else %}
+                                                    <img src="{% static 'img/files/unknownfile.png' %}" class="file-type">
+                                                {% endif %}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p style="color:rgb(235, 94, 51);">
+                {% trans "You don't have permission to view this content." %}
+            </p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

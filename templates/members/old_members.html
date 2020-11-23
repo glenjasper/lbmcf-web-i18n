@@ -1,0 +1,159 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'OldMem' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="bg-light footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h2 class="section-heading text-uppercase">{% trans 'OldMem' %}</h2>
+                        <h3 class="section-subheading text-muted">
+                            {% trans 'TextMem' %}...
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for olmember in context_oldmembers %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-member">
+                        <div class="floating-icon">
+                            <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-name="{{ olmember }}" data-biography="{{ olmember.biography }}" data-title="{% trans 'Biography' %}" data-icon="fas fa-user-graduate"><!--fas fa-address-card-->
+                                <img class="mx-auto rounded-circle" src="{{ olmember.image.url }}" alt="">
+                            </a>
+                        </div>
+                        <h5>
+                            {{ olmember.degree }} {{ olmember }}
+                            {% with 'img/flags/countries/'|add:olmember.country.code|lower|add:'.png' as image_static %}
+                                <img src="{% static image_static %}" class="img-flag-team">
+                            {% endwith %}
+                        </h5>
+                        <p class="text-muted"></p>
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                {% if olmember.email %}
+                                <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-email="{{ olmember.email }}" data-title="E-mail" data-icon="fas fa-envelope">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                {% else %}
+                                <a href="#" class="disabled">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                {% endif %}
+                            </li>
+                            <li class="list-inline-item">
+                                {% if olmember.linkedin %}
+                                <a href="{{ olmember.linkedin }}" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                {% else %}
+                                <a href="#" class="disabled">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                {% endif %}
+                            </li>
+                            <li class="list-inline-item lattes-buttons-alter">
+                                {% if olmember.lattes %}
+                                <a href="{{ olmember.lattes }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{% static 'img/lattes-white.png' %}">
+                                </a>
+                                {% else %}
+                                <a href="#" class="disabled">
+                                    <img src="{% static 'img/lattes-white.png' %}">
+                                </a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal_information" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-uppercase" id="myModalLabel">
+                        <div id="infotitle"></div>
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <div class="row">
+                                    <a href="#" class="disabled">
+                                        <i id="infoicon" class="fas fa-info"></i>
+                                    </a>
+                                    <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                        <div id="information"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                            <div id="biography"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary mx-auto" data-dismiss="modal" type="button">
+                        <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascriptplus %}
+    <script>
+        // Team
+        $(document).on("click", ".open-modal_information", function () {
+            var _not_registered = "{% trans 'NotReg' %}";
+            var _title = $(this).data('title');
+            var _icon = $(this).data('icon');
+            var _phone = $(this).data('phone');
+            var _mobile = $(this).data('mobile');
+            var _email = $(this).data('email');
+            var _name = $(this).data('name');
+            var _biography = $(this).data('biography');
+
+            $(".modal-body #biography").text('');
+
+            if (_phone){
+                $(".modal-body #information").text(_phone);
+            } else {
+                if (_mobile){
+                    $(".modal-body #information").text(_mobile);
+                } else {
+                    if (_email){
+                        $(".modal-body #information").text(_email);
+                    } else {
+                        if (_biography){
+                            $(".modal-body #information").text(_name);
+                            $(".modal-body #biography").text(_biography);
+                        } else {
+                            $(".modal-body #information").text(_not_registered);
+                        }
+                    }
+                }
+            }
+
+            $(".modal-header #infotitle").text(_title);
+            $(".modal-body #infoicon").attr('class', '');
+            $(".modal-body #infoicon").attr('class', _icon);
+        });
+    </script>
+{% endblock javascriptplus %}
