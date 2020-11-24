@@ -19,8 +19,11 @@ class HomeView(ListView):
     template_name = "core/home.html"
     context_object_name = 'context_members'
 
+    # Two conditions:
+    # AND: ~Q(...) & ~Q(...)
+    # OR:  ~Q(...) | ~Q(...)
     def get_queryset(self):
-        _members_all = Member.objects.all().filter(~Q(role_id = 1), status = True).order_by('role__order', 'first_name')
+        _members_all = Member.objects.all().filter(~Q(role_id = 1) & ~Q(role_id = 7), status = True).order_by('role__order', 'first_name')
         # _members_postdoc = _members_all.filter(role_id = 2) # Postdoctoral fellows
         # _members_phd_stu = _members_all.filter(role_id = 3) # Ph.D Student
         # _members_msc_stu = _members_all.filter(role_id = 4) # M.Sc. Student

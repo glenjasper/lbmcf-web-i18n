@@ -52,7 +52,7 @@ coverage.xml
 .pytest_cache/
 
 # Translations
-*.mo
+#*.mo
 *.pot
 
 # Django stuff:
@@ -129,3 +129,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Files
+*.pdf
+*.PDF
+*.Pdf
