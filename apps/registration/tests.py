@@ -14,5 +14,5 @@ class ProfileTestCase(TestCase):
 '''
 python manage.py test apps/registration
 
-#Puede dar error por no tener permisos de CREATE DB (probamos con root)
+# Puede dar error por no tener permisos de CREATE DB (probamos con root)
 '''

@@ -12,11 +12,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <!--
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#page-top"{% else %}href="{% url 'core_app:url_home' %}"{% endif %}>Home</a>
                     </li>
-                    -->
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" {% if request.path == '/' %}href="#section_news"{% else %}href="{% url 'core_app:url_home' %}#section_news"{% endif %}>{% trans 'News' %}</a>
                     </li>
@@ -50,25 +48,35 @@
                     </li>
                     {% if request.user.is_authenticated %}
                         <!--
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="{% url 'messenger_app:url_messenger_list' %}">Chat</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="{% url 'profiles_app:url_profile_list' %}">{% trans 'Profiles' %}</a>
-                        </li>
+                        {% if request.user.is_superuser %}
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="{% url 'messenger_app:url_messenger_list' %}">Chat</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="{% url 'profiles_app:url_profile_list' %}">{% trans 'Profiles' %}</a>
+                            </li>
+                        {% endif %}
                         -->
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_profile' %}">{% trans 'Profile' %}</a>
+                            <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_profile' %}" >
+                                {% if request.user.profile.avatar %}
+                                    <img src="{{ request.user.profile.avatar.url }}" title="{% trans 'MyPrf' %}" width="25" height="25" style="border-radius: 50%;">
+                                {% else %}
+                                    <i class="fas fa-user-shield color_login" title="{% trans 'MyPrf' %}" ></i>
+                                {% endif %}
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
                         </li>
                     {% else %}
-                        <!--
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_signup' %}">Sign Up</a>
-                        </li>
-                        -->
+                        {% load controllers_all %}
+                        {% get_controller_enabler as page_list %}
+                        {% if page_list.enabler %}
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_signup' %}">Sign Up</a>
+                            </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Log In</a>
                         </li>

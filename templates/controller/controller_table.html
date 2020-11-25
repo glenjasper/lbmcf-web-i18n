@@ -1,0 +1,30 @@
+{% load i18n %}
+                    <table id="controller-table" class="table table-sms table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col" style="width: 80%;"><a>{% trans 'Name' %}</a></th>
+                                <th scope="col" style="width: 10%;" class="text-center"><a>{% trans 'Enabled' %}</a></th>
+                                <th scope="col" style="width: 10%;" class="text-center"><a>{% trans 'Edit' %}</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for controller in context_controllers %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ controller.name }}</td>
+                                <td class="text-center">
+                                    {% if controller.enabler %}
+                                    <i class="fas fa-check-circle color_success"></i>
+                                    {% else %}
+                                    <i class="fas fa-times-circle color_danger "></i>
+                                    {% endif %}
+                                <td class="text-center">
+                                    <button type="button" class="update-controller btn btn-sm-alt btn-default" data-form-url="{% url 'controller_app:url_controller_update' controller.pk %}">
+                                        <i class="fas fa-edit color_edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'naomi',
     'auditlog',
     'parler',
+    'bootstrap_modal_forms',
+    'widget_tweaks',
     # my apps
     'apps.core',
     'apps.research',
@@ -61,6 +63,7 @@ INSTALLED_APPS = [
     'apps.links',
     'apps.news',
     'apps.innovation',
+    'apps.controller',
     #'apps.research.apps.ResearchConfig',
 ]
 

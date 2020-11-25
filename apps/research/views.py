@@ -1,8 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import (
-    TemplateView,
-    ListView
-)
+from django.views.generic import ListView
 from .models import (
     Project,
     Protocol,
@@ -37,7 +34,7 @@ class ProtocolView(ListView):
 
             if protocol_type not in _queryset:
                 _queryset.update({protocol_type: {'description': protocol_description,
-                                                'items': [_protocol]}})
+                                                  'items': [_protocol]}})
             else:
                 _current = _queryset[protocol_type].copy()
                 _current['items'].append(_protocol)
@@ -62,12 +59,12 @@ class FileView(ListView):
             file_item_pdf = item.pdf
 
             _file = {'name': file_item_name,
-                        'description': file_item_description,
-                        'pdf': file_item_pdf}
+                     'description': file_item_description,
+                     'pdf': file_item_pdf}
 
             if file_type not in _queryset:
                 _queryset.update({file_type: {'description': file_description,
-                                                'items': [_file]}})
+                                              'items': [_file]}})
             else:
                 _current = _queryset[file_type].copy()
                 _current['items'].append(_file)

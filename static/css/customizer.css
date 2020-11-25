@@ -785,8 +785,40 @@ Files
 /*--------------------------------------------------------------
 # Bootstrap-grid Update
 --------------------------------------------------------------*/
-.col-lg-4_5 {
-    -ms-flex: 0 0 37.483333%;
-    flex: 0 0 37.483333%;
-    max-width: 37.483333%;
+.col-md-4_5 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
 }
+
+@media (min-width: 768px) {
+  .col-md-4_5 {
+    -ms-flex: 0 0 37.499999%;
+    flex: 0 0 37.499999%;
+    max-width: 37.499999%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Table
+--------------------------------------------------------------*/
+.table_font {
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-sm-alt {
+    padding: 0rem 0rem;
+    line-height: 0;
+    border-radius: 0rem;
+}
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+.color_success {color: #318b46;}
+.color_warning {color: #ebb000;}
+.color_danger {color: #db2b3c;}
+.color_login {color: #1fc044;}
+.color_edit {color: #365481;}

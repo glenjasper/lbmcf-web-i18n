@@ -31,6 +31,7 @@ urlpatterns = [
     path('about/', include(('apps.about.urls', 'about_app'), namespace = 'about_app')),
     path('news/', include(('apps.news.urls', 'news_app'), namespace = 'news_app')),
     path('innovation/', include(('apps.innovation.urls', 'innovation_app'), namespace = 'innovation_app')),
+    path('controller/', include(('apps.controller.urls', 'controller_app'), namespace = 'controller_app')),
     path('profiles/', include(profiles_patterns, namespace = 'profiles_app')),
     path('messenger/', include(messenger_patterns, namespace = 'messenger_app')),
     path('admin/', admin.site.urls),

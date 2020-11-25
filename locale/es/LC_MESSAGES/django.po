@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 22:14-0300\n"
+"POT-Creation-Date: 2020-11-25 13:45-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,29 +46,29 @@ msgstr "Requerido. 254 carácteres como máximo."
 msgid "The e-mail is already registered."
 msgstr "El email ya está registrado."
 
-#: apps/registration/views.py:23 templates/registration/login.html:21
+#: apps/registration/views.py:24 templates/registration/login.html:21
 #: templates/registration/profile.html:53
 msgid "User"
 msgstr "Usuario"
 
-#: apps/registration/views.py:25 templates/registration/login.html:24
+#: apps/registration/views.py:26 templates/registration/login.html:24
 msgid "Password"
 msgstr "Contraseña"
 
-#: apps/registration/views.py:26
+#: apps/registration/views.py:27
 #: templates/registration/password_change_form.html:33
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
 
-#: lbmcf/settings.py:154
+#: lbmcf/settings.py:157
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: lbmcf/settings.py:155
+#: lbmcf/settings.py:158
 msgid "English"
 msgstr "Inglés"
 
-#: lbmcf/settings.py:156
+#: lbmcf/settings.py:159
 msgid "Spanish"
 msgstr "Español"
 
@@ -81,9 +81,10 @@ msgid "About us"
 msgstr "Sobre nosotros"
 
 #: templates/about/about_update.html:15 templates/about/about_update.html:31
+#: templates/controller/controller_update.html:34
 #: templates/legal/politics_update.html:15
 #: templates/legal/politics_update.html:31
-#: templates/registration/profile.html:82
+#: templates/registration/profile.html:89
 #: templates/registration/profile_email.html:22
 msgid "Update"
 msgstr "Actualizar"
@@ -93,7 +94,7 @@ msgid "About us, updated correctly"
 msgstr "Sobre nosotros, actualizado correctamente"
 
 #: templates/base/base.html:11 templates/base/header.html:9
-#: templates/contact/contact.html:79 templates/core/home.html:17
+#: templates/contact/contact.html:87 templates/core/home.html:17
 msgid "Molecular and Computational Biology of Fungi Laboratory"
 msgstr "Laboratorio de Biología Molecular y Computacional de Hongos"
 
@@ -106,68 +107,68 @@ msgstr "Contacto"
 msgid "Know more"
 msgstr "Saber más"
 
-#: templates/base/navbar.html:21 templates/core/home.html:55
+#: templates/base/navbar.html:19 templates/core/home.html:55
 #: templates/news/news.html:4 templates/news/news.html:14
 msgid "News"
 msgstr "Noticias"
 
-#: templates/base/navbar.html:26 templates/core/home.html:95
+#: templates/base/navbar.html:24 templates/core/home.html:95
 #: templates/research/files.html:14 templates/research/projects.html:14
 #: templates/research/protocols.html:14
 msgid "Research"
 msgstr "Investigación"
 
-#: templates/base/navbar.html:29 templates/core/home.html:111
+#: templates/base/navbar.html:27 templates/core/home.html:111
 #: templates/research/projects.html:4 templates/research/projects.html:15
 msgid "Projects"
 msgstr "Proyectos"
 
-#: templates/base/navbar.html:30 templates/core/home.html:125
+#: templates/base/navbar.html:28 templates/core/home.html:125
 #: templates/research/protocols.html:4 templates/research/protocols.html:15
 msgid "Protocols"
 msgstr "Protocolos"
 
-#: templates/base/navbar.html:31 templates/core/home.html:139
+#: templates/base/navbar.html:29 templates/core/home.html:139
 #: templates/research/files.html:4 templates/research/files.html:15
 msgid "Files"
 msgstr "Archivos"
 
-#: templates/base/navbar.html:35 templates/core/home.html:155
+#: templates/base/navbar.html:33 templates/core/home.html:155
 msgid "Members"
 msgstr "Miembros"
 
-#: templates/base/navbar.html:38 templates/core/home.html:373
+#: templates/base/navbar.html:36 templates/core/home.html:373
 #: templates/publications/papers.html:4 templates/publications/papers.html:14
 msgid "Publications"
 msgstr "Publicaciones"
 
-#: templates/base/navbar.html:41 templates/core/home.html:441
+#: templates/base/navbar.html:39 templates/core/home.html:441
 msgid "Partnerships"
 msgstr "Colaboraciones"
 
-#: templates/base/navbar.html:45 templates/core/home.html:614
+#: templates/base/navbar.html:43 templates/core/home.html:614
 msgid "Innovation"
 msgstr "Innovación"
 
-#: templates/base/navbar.html:48 templates/core/home.html:629
+#: templates/base/navbar.html:46 templates/core/home.html:629
 #: templates/innovation/patents.html:4 templates/innovation/patents.html:14
 msgid "Patents"
 msgstr "Patentes"
 
-#: templates/base/navbar.html:57
+#: templates/base/navbar.html:56 templates/profiles/profile_list.html:4
+#: templates/profiles/profile_list.html:15
 msgid "Profiles"
 msgstr "Perfiles"
 
-#: templates/base/navbar.html:61 templates/registration/profile.html:4
-#: templates/registration/profile.html:20
-msgid "Profile"
-msgstr "Perfil"
+#: templates/base/navbar.html:63 templates/base/navbar.html:65
+msgid "MyPrf"
+msgstr "Mi Perfil"
 
 #: templates/contact/contact.html:21
 msgid "E-mail sent correctly, we will contact you soon."
 msgstr "E-mail enviado correctamente, pronto nos pondremos en contacto con Ud."
 
-#: templates/contact/contact.html:69
+#: templates/contact/contact.html:69 templates/profiles/profile_detail.html:26
 msgid "SendMessage"
 msgstr "Enviar Mensaje"
 
@@ -175,21 +176,49 @@ msgstr "Enviar Mensaje"
 msgid "Federal University of Minas Gerais"
 msgstr "Universidad Federal de Minas Gerais"
 
-#: templates/contact/contact.html:78
+#: templates/contact/contact.html:81
 msgid "Institute of Biological Sciences"
 msgstr "Instituto de Ciencias Biológicas"
 
-#: templates/contact/contact.html:79
+#: templates/contact/contact.html:84
 msgid "Department of Bioinformatics"
 msgstr "Departamento de Bioinformática"
 
-#: templates/contact/contact.html:82 templates/core/home.html:199
-msgid "Phone"
-msgstr "Teléfono"
+#: templates/controller/controller_list.html:4
+#: templates/controller/controller_list.html:14
+msgid "Controllers"
+msgstr "Controladores"
 
-#: templates/core/home.html:30 templates/legal/politics.html:48
+#: templates/controller/controller_list.html:15
+msgid "List"
+msgstr "Lista"
+
+#: templates/controller/controller_list.html:24
+msgid "No controllers added yet."
+msgstr "Aún no se agregaron controladores."
+
+#: templates/controller/controller_list.html:45
+msgid "Success: Controller was updated."
+msgstr "Éxito: se actualizó el controlador."
+
+#: templates/controller/controller_table.html:6
+#: templates/registration/profile.html:45 templates/research/files.html:39
+#: templates/research/protocols.html:37
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/controller/controller_table.html:7
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: templates/controller/controller_table.html:8 templates/core/home.html:30
+#: templates/legal/politics.html:48
 msgid "Edit"
 msgstr "Editar"
+
+#: templates/controller/controller_update.html:7
+msgid "Update Controller"
+msgstr "Actualizar Controlador"
 
 #: templates/core/home.html:58
 msgid ""
@@ -244,6 +273,10 @@ msgstr ""
 #: templates/members/old_members.html:26
 msgid "Biography"
 msgstr "Biografía"
+
+#: templates/core/home.html:199
+msgid "Phone"
+msgstr "Teléfono"
 
 #: templates/core/home.html:278
 msgid "Mobile"
@@ -361,6 +394,10 @@ msgstr "Investigadores que formaron parte de LBMCF, conozca más de ellos"
 msgid "All the news"
 msgstr "Todas las noticias"
 
+#: templates/profiles/profile_list.html:32
+msgid "ViewP"
+msgstr "Ver Perfil"
+
 #: templates/publications/papers.html:48
 msgid "Key words"
 msgstr "Palabras clave"
@@ -389,6 +426,7 @@ msgstr "¿Olvidaste tu contraseña?, Puedes restaurarlo desde"
 #: templates/registration/password_reset_confirm.html:40
 #: templates/registration/profile.html:69
 #: templates/registration/profile.html:74
+#: templates/registration/profile.html:80
 msgid "here"
 msgstr "aquí"
 
@@ -506,14 +544,13 @@ msgstr ""
 "¿Olvidaste tu contraseña? Ingrese su e-mail a continuación y le enviaremos "
 "las instrucciones para establecer una nueva."
 
+#: templates/registration/profile.html:4 templates/registration/profile.html:20
+msgid "Profile"
+msgstr "Perfil"
+
 #: templates/registration/profile.html:30
 msgid "Delete?"
 msgstr "¿Eliminar?"
-
-#: templates/registration/profile.html:45 templates/research/files.html:39
-#: templates/research/protocols.html:37
-msgid "Name"
-msgstr "Nombre"
 
 #: templates/registration/profile.html:69
 msgid "If you want to edit your email click"
@@ -522,6 +559,10 @@ msgstr "Si desea editar su email haga clic"
 #: templates/registration/profile.html:74
 msgid "If you want to change your password click"
 msgstr "Si desea cambiar su contraseña haga clic"
+
+#: templates/registration/profile.html:80
+msgid "UpControllers"
+msgstr "Actualizar controladores"
 
 #: templates/registration/signup.html:4 templates/registration/signup.html:18
 msgid "Sign Up"
@@ -535,7 +576,7 @@ msgstr "Registrarse"
 msgid "Description"
 msgstr "Descripción"
 
-#: templates/research/files.html:99
+#: templates/research/files.html:98
 msgid "You don't have permission to view this content."
 msgstr "Ud. no tiene permiso para ver este contenido."
 

@@ -25,7 +25,7 @@
                             <!-- Previa del avatar -->
                             <div class="col-md-3 mt-0 mx-auto">
                                 {% if request.user.profile.avatar %}
-                                    <img src="{{request.user.profile.avatar.url}}" class="img-fluid">
+                                    <img src="{{ request.user.profile.avatar.url }}" class="img-fluid">
                                     <p class="mt-1 text-center">
                                         {% trans 'Delete?' %} <input type="checkbox" id="avatar-clear" name="avatar-clear"/>
                                     </p>
@@ -66,14 +66,21 @@
                                 </div>
                                 <div class="row col-md-9 mt-3">
                                     <div>
-                                        {% trans 'If you want to edit your email click' %} <a href="{% url 'registration_app:url_profile_email' %}">{% trans 'here' %}</a>.
+                                        <i class="fas fa-edit"></i> {% trans 'If you want to edit your email click' %} <a href="{% url 'registration_app:url_profile_email' %}">{% trans 'here' %}</a>.
                                     </div>
                                 </div>
                                 <div class="row col-md-9 mt-1">
                                     <div>
-                                        {% trans 'If you want to change your password click' %} <a href="{% url 'password_change' %}">{% trans 'here' %}</a>.
+                                        <i class="fas fa-edit"></i> {% trans 'If you want to change your password click' %} <a href="{% url 'password_change' %}">{% trans 'here' %}</a>.
                                     </div>
                                 </div>
+                                {% if request.user.is_superuser %}
+                                <div class="row col-md-9 mt-1">
+                                    <div>
+                                        <i class="fas fa-key"></i> {% trans 'UpControllers' %} <a href="{% url 'controller_app:url_controller_list' %}">{% trans 'here' %}</a>.
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="row">

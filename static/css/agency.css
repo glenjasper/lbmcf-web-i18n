@@ -88,12 +88,16 @@ section h4.section-subheading-user {
 section h3.section-contact {
   font-size: 14px;
   font-weight: 400;
-  font-style: italic;
+  /*font-style: italic;*/
   margin-top: 5px;
   margin-bottom: 0px;
   text-transform: none;
-  font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: "Poppins", sans-serif;
   color: #ced4da !important;
+}
+
+section h3 i {
+  color: #f8d555 !important;
 }
 
 @media (min-width: 768px) {
@@ -179,9 +183,13 @@ img::-moz-selection {
   font-size: 90%;
   font-weight: 400;
   padding: 0.75em 0;
-  letter-spacing: 1px;
   color: white;
+  /*
+  letter-spacing: 1px;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  */
+  letter-spacing: 0.02em;
+  font-family: "Poppins", sans-serif;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link.active,

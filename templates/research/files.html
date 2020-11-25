@@ -31,7 +31,7 @@
                     <div id="collapse_{{ forloop.counter }}" class="collapse accordion_id-content" aria-labelledby="heading_{{ forloop.counter }}">
                         <div class="card-body">
                             <p>{{ detail.description }}</p>
-                            <div class="table-responsive" style="font-size: 14px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                            <div class="table-responsive table_font">
                                 <table class="table table-hover mb-0">
                                     <thead>
                                         <tr>
@@ -84,7 +84,6 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>
@@ -95,7 +94,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <p style="color:rgb(235, 94, 51);">
+            <p class="color_danger">
                 {% trans "You don't have permission to view this content." %}
             </p>
             {% endif %}

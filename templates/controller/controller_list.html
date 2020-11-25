@@ -1,0 +1,74 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Controllers' %} | {{ block.super }}{% endblock %}
+{% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center g-padding-y-80--top">
+                        <h2 class="section-heading text-uppercase">{% trans 'Controllers' %}</h2>
+                        <h4 class="section-subheading text-muted">{% trans 'List' %}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive table_font">
+                {% if context_controllers %}
+                    {% include "controller/controller_table.html" %}
+                {% else %}
+                    <p class="text-primary">{% trans 'No controllers added yet.' %}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog mt-5" role="document">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascriptplus %}
+    <script type="text/javascript">
+        $(function () {
+            var asyncSuccessMessageUpdate = [
+                "<div style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
+                "     class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
+                "  {% trans 'Success: Controller was updated.' %}",
+                "  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
+                "    <span aria-hidden='true'>&times;</span>",
+                "  </button>",
+                "</div>",
+                "<script>",
+                "  $('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+                "<\/script>"
+            ].join("");
+
+            function updateControllerModalForm() {
+                $(".update-controller").each(function () {
+                    $(this).modalForm({
+                        formURL: $(this).data("form-url"),
+                        asyncUpdate: true,
+                        asyncSettings: {
+                            closeOnSubmit: true,
+                            successMessage: asyncSuccessMessageUpdate,
+                            dataUrl: "updated_list/",
+                            dataElementId: "#controller-table",
+                            dataKey: "table",
+                            addModalFormFunction: updateControllerModalForm
+                        }
+                    });
+                });
+            }
+            updateControllerModalForm();
+        });
+    </script>
+{% endblock javascriptplus %}

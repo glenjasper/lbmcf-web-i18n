@@ -1,12 +1,13 @@
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import UserCreationFormWithEmail, ProfileForm, EmailForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView #, ListView
 from django.views.generic.edit import UpdateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django import forms
 from .models import Profile
+# from apps.controller.models import Controller
 from django.utils.translation import ugettext_lazy as _
 
 class SignUpView(CreateView):
@@ -37,6 +38,13 @@ class ProfileUpdate(UpdateView):
         # recuperar el objeto que se va editar
         profile, created = Profile.objects.get_or_create(user = self.request.user)
         return profile
+    '''
+    def get_context_data(self, **kwargs):
+        context = super(ProfileUpdate, self).get_context_data(**kwargs)
+        query_controller = Controller.objects.all()
+        context['context_controllers'] = query_controller
+        return context
+    '''
 
 @method_decorator(login_required, name = 'dispatch')
 class EmailUpdate(UpdateView):

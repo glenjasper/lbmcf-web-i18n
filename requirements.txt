@@ -5,4 +5,6 @@ django-ckeditor==5.6.1
 django-naomi==0.8
 django-auditlog==0.4.7
 django-parler==2.2
+django-bootstrap-modal-forms==2.0.1
+django-widget-tweaks==1.4.8
 python-decouple==3.3

@@ -606,7 +606,7 @@
 
 <!-- Innovation -->
 {% block content_innovation %}
-    <section id="section_innovation" class="d-flex align-items-center">
+    <section id="section_innovation">
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -619,11 +619,11 @@
                 </div>
             </div>
             <div class="row icon-boxes">
-                <div class="col-lg-4_5"></div>
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-md-4_5"></div>
+                <div class="col-md-3 align-items-stretch">
                     <div class="icon-box">
                         <div class="icon">
-                            <i class="ri-shield-star-line"></i><!--ri-shield-star-line | ri-bookmark-3-line | ri-microscope-line-->
+                            <i class="ri-shield-star-line"></i>
                         </div>
                         <h4 class="title">
                             <a href="{% url 'innovation_app:url_patents' %}">{% trans 'Patents' %}</a>
@@ -633,7 +633,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4_5"></div>
+                <div class="col-md-4_5"></div>
             </div>
         </div>
     </section>

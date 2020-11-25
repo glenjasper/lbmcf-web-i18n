@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Profiles | {{ block.super }}{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Profiles' %} | {{ block.super }}{% endblock %}
 {% block cssplus %}<style>#mainNav {background-color: #212529;}</style>{% endblock %}
 {% block header %}{% endblock %}
 
@@ -11,7 +12,7 @@
             <div class="row mt-4">
                 <div class="col-md-9 mx-auto">
                     <div class="text-center">
-                        <h3 class="text-uppercase mb-4 mt-5">Perfis</h3>
+                        <h3 class="text-uppercase mb-4 mt-5">{% trans 'Profiles' %}</h3>
                     </div>
                     <div class="row">
                         {% for profile in context_profile_list %}
@@ -28,7 +29,7 @@
                                         </div>
                                         <div class="profile-data-link">
                                             <a href="{% url 'profiles_app:url_profile_detail' profile.user %}">
-                                                Ver perfil
+                                                {% trans 'ViewP' %}
                                             </a>
                                         </div>
                                     </div>

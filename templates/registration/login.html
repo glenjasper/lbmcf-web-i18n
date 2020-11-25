@@ -27,7 +27,7 @@
                             <input type="submit" class="btn btn-primary btn-block col-md-5 mx-auto" value="{% trans 'Log In' %}">
                         </p>
                         {% if form.non_field_errors %}
-                            <p style="color:red;">
+                            <p class="color_danger">
                                 {% trans 'Incorrect username or password, try again.' %}
                             </p>
                         {% endif %}
@@ -39,7 +39,7 @@
                         </a>
                     </p>
                     {% if 'register' in request.GET %}
-                        <p style="color:green;">
+                        <p class="color_success">
                             {% trans 'User correctly registered, you can log in.' %}
                         </p>
                     {% endif %}
