@@ -804,14 +804,50 @@ Files
 # Table
 --------------------------------------------------------------*/
 .table_font {
-    font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .btn-sm-alt {
     padding: 0rem 0rem;
     line-height: 0;
     border-radius: 0rem;
+}
+
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
+.modal_b_text1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+}
+
+.modal_b_text2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    /*
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    display:inline;
+    vertical-align: middle;
+    */
+}
+
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+
+.icon_academic_fawesome {
+    color: #000000;
+    font-size: 1.5em;
+    margin-top: 2px;
+}
+
+.icon_academic {
+    width: 1.5em;
 }
 
 /*--------------------------------------------------------------

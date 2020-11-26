@@ -60,7 +60,7 @@
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="{% url 'registration_app:url_profile' %}" >
                                 {% if request.user.profile.avatar %}
-                                    <img src="{{ request.user.profile.avatar.url }}" title="{% trans 'MyPrf' %}" width="25" height="25" style="border-radius: 50%;">
+                                    <img src="{{ request.user.profile.avatar.url }}" title="{% trans 'MyPrf' %}" class="rounded-circle" width="25" height="25">
                                 {% else %}
                                     <i class="fas fa-user-shield color_login" title="{% trans 'MyPrf' %}" ></i>
                                 {% endif %}

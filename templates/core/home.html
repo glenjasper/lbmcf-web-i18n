@@ -182,8 +182,17 @@
                     {% endif %}
                         <div class="team-member">
                             <div class="floating-icon">
-                                <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-name="{{ member }}" data-biography="{{ member.biography }}" data-title="{% trans 'Biography' %}" data-icon="fas fa-user-graduate"><!--fas fa-address-card-->
-                                    <img class="mx-auto rounded-circle" src="{{ member.image.url }}" alt="">
+                                <a href="#modal_biography" class="open-modal_biography" data-toggle="modal" data-photo-profile="{{ member.image.url }}"
+                                                                                                            data-name="{{ member }}"
+                                                                                                            data-biography="{{ member.biography }}"
+                                                                                                            data-phone="{{ member.phone }}"
+                                                                                                            data-email="{{ member.email }}"
+                                                                                                            data-lattes="{{ member.lattes }}"
+                                                                                                            data-linkedin="{{ member.linkedin }}"
+                                                                                                            data-orcid="{{ member.orcid }}"
+                                                                                                            data-researchgate="{{ member.researchgate }}"
+                                                                                                            data-title="{% trans 'Biography' %}">
+                                    <img class="mx-auto rounded-circle" src="{{ member.image.url }}">
                                 </a>
                             </div>
                             <h5>
@@ -230,11 +239,11 @@
                                 <li class="list-inline-item lattes-buttons-alter">
                                     {% if member.lattes %}
                                     <a href="{{ member.lattes }}" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'img/lattes-white.png' %}">
+                                        <img src="{% static 'img/icons/lattes-white.png' %}">
                                     </a>
                                     {% else %}
                                     <a href="#" class="disabled">
-                                        <img src="{% static 'img/lattes-white.png' %}">
+                                        <img src="{% static 'img/icons/lattes-white.png' %}">
                                     </a>
                                     {% endif %}
                                 </li>
@@ -246,11 +255,20 @@
             <!--Members-->
             <div class="row">
                 {% for member in context_members %}
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3">
                         <div class="team-member">
                             <div class="floating-icon">
-                                <a href="#modal_information" class="open-modal_information" data-toggle="modal" data-name="{{ member }}" data-biography="{{ member.biography }}" data-title="{% trans 'Biography' %}" data-icon="fas fa-user-graduate"><!--fas fa-address-card-->
-                                    <img class="mx-auto rounded-circle" src="{{ member.image.url }}" alt="">
+                                <a href="#modal_biography" class="open-modal_biography" data-toggle="modal" data-photo-profile="{{ member.image.url }}"
+                                                                                                            data-name="{{ member }}"
+                                                                                                            data-biography="{{ member.biography }}"
+                                                                                                            data-phone="{{ member.phone }}"
+                                                                                                            data-email="{{ member.email }}"
+                                                                                                            data-lattes="{{ member.lattes }}"
+                                                                                                            data-linkedin="{{ member.linkedin }}"
+                                                                                                            data-orcid="{{ member.orcid }}"
+                                                                                                            data-researchgate="{{ member.researchgate }}"
+                                                                                                            data-title="{% trans 'Biography' %}">
+                                    <img class="mx-auto rounded-circle" src="{{ member.image.url }}">
                                 </a>
                             </div>
                             <h5>
@@ -299,11 +317,11 @@
                                 <li class="list-inline-item lattes-buttons-alter">
                                     {% if member.lattes %}
                                     <a href="{{ member.lattes }}" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'img/lattes-white.png' %}">
+                                        <img src="{% static 'img/icons/lattes-white.png' %}">
                                     </a>
                                     {% else %}
                                     <a href="#" class="disabled">
-                                        <img src="{% static 'img/lattes-white.png' %}">
+                                        <img src="{% static 'img/icons/lattes-white.png' %}">
                                     </a>
                                     {% endif %}
                                 </li>
@@ -323,7 +341,86 @@
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Modal: Biography -->
+    <div class="modal fade" id="modal_biography" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-uppercase" id="myModalLabel">
+                        {% trans 'Biography' %}
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row py-1">
+                                <div class="col text-center">
+                                    <img id="photo-profile" class="rounded-lg" width="85%" height="100%">
+                                </div>
+                            </div>
+                            <div class="row py-1 text-center modal_b_text1">
+                                <div class="col">
+                                    <div id="mb-name"></div>
+                                </div>
+                            </div>
+                            <div id="div-mb-email" class="row pt-1 pl-2">
+                                <div class="col">
+                                    <i class="fas fa-envelope"></i>
+                                    <span id="mb-email" class="modal_b_text2"></span>
+                                </div>
+                            </div>
+                            <div id="div-mb-phone" class="row pt-1 pl-2">
+                                <div class="col">
+                                    <i class="fas fa-phone"></i>
+                                    <span id="mb-phone" class="modal_b_text2"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 modal_b_text1">
+                            <div id="mb-biography"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8">
+                            <div class="row py-1">
+                                <div id="div-mb-lattes" class="col-1">
+                                    <a id="mb-lattes" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'img/icons/lattes.png' %}" class="icon_academic">
+                                    </a>
+                                </div>
+                                <div id="div-mb-researchgate" class="col-1">
+                                    <a id="mb-researchgate" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-researchgate icon_academic_fawesome"></i>
+                                    </a>
+                                </div>
+                                <div id="div-mb-orcid" class="col-1">
+                                    <a id="mb-orcid" target="_blank" rel="noopener noreferrer">
+                                        <img src="{% static 'img/icons/orcid.svg' %}" class="icon_academic">
+                                    </a>
+                                </div>
+                                <div id="div-mb-linkedin" class="col-1">
+                                    <a id="mb-linkedin" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-linkedin  icon_academic_fawesome"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary mx-auto" data-dismiss="modal" type="button">
+                        <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Other Informations -->
     <div class="modal fade" id="modal_information" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -524,11 +621,11 @@
                                                         <div>
                                                             {% if partnership.link %}
                                                                 <a href="{{ partnership.link }}" target="_blank" rel="noopener noreferrer" class="text-center">
-                                                                    <img src="{% static 'img/lattes-white.png' %}">
+                                                                    <img src="{% static 'img/icons/lattes-white.png' %}">
                                                                 </a>
                                                             {% else %}
                                                                 <a href="#" class="disabled text-center">
-                                                                    <img src="{% static 'img/lattes-white.png' %}">
+                                                                    <img src="{% static 'img/icons/lattes-white.png' %}">
                                                                 </a>
                                                             {% endif %}
                                                         </div>
@@ -677,7 +774,69 @@
 
 {% block javascriptplus %}
     <script>
-        // Team
+        // Team: Biography
+        $(document).on("click", ".open-modal_biography", function () {
+            var _not_registered = "{% trans 'NotReg' %}";
+            var _photo_profile = $(this).data('photo-profile');
+            var _name = $(this).data('name');
+            var _biography = $(this).data('biography');
+            var _phone = $(this).data('phone');
+            var _email = $(this).data('email');
+            var _lattes = $(this).data('lattes');
+            var _researchgate = $(this).data('researchgate');
+            var _orcid = $(this).data('orcid');
+            var _linkedin = $(this).data('linkedin');
+
+            $(".modal-body #photo-profile").attr('src', '');
+            $(".modal-body #photo-profile").attr('src', _photo_profile);
+
+            $(".modal-body #mb-name").text(_name);
+
+            if (_biography) {
+                $(".modal-body #mb-biography").text(_biography);
+            } else {
+                $(".modal-body #mb-biography").text(_not_registered);
+            }
+
+            if (_phone) {
+                $(".modal-body #mb-phone").text(_phone);
+                $(".modal-body #div-mb-phone").show();
+            } else {
+                $(".modal-body #div-mb-phone").hide();
+            }
+            if (_email) {
+                $(".modal-body #mb-email").text(_email);
+                $(".modal-body #div-mb-email").show();
+            } else {
+                $(".modal-body #div-mb-email").hide();
+            }
+            if (_lattes) {
+                $(".modal-body #mb-lattes").attr('href', _lattes);
+                $(".modal-body #div-mb-lattes").show();
+            } else {
+                $(".modal-body #div-mb-lattes").hide();
+            }
+            if (_researchgate) {
+                $(".modal-body #mb-researchgate").attr('href', _researchgate);
+                $(".modal-body #div-mb-researchgate").show();
+            } else {
+                $(".modal-body #div-mb-researchgate").hide();
+            }
+            if (_orcid) {
+                $(".modal-body #mb-orcid").attr('href', _orcid);
+                $(".modal-body #div-mb-orcid").show();
+            } else {
+                $(".modal-body #div-mb-orcid").hide();
+            }
+            if (_linkedin) {
+                $(".modal-body #mb-linkedin").attr('href', _linkedin);
+                $(".modal-body #div-mb-linkedin").show();
+            } else {
+                $(".modal-body #div-mb-linkedin").hide();
+            }
+        });
+
+        // Team: Others Informations
         $(document).on("click", ".open-modal_information", function () {
             var _not_registered = "{% trans 'NotReg' %}";
             var _title = $(this).data('title');
@@ -686,27 +845,17 @@
             var _mobile = $(this).data('mobile');
             var _email = $(this).data('email');
             var _name = $(this).data('name');
-            var _biography = $(this).data('biography');
 
             $(".modal-body #biography").text('');
 
-            if (_phone){
+            if (_phone) {
                 $(".modal-body #information").text(_phone);
+            } else if (_mobile) {
+                $(".modal-body #information").text(_mobile);
+            } else  if (_email) {
+                $(".modal-body #information").text(_email);
             } else {
-                if (_mobile){
-                    $(".modal-body #information").text(_mobile);
-                } else {
-                    if (_email){
-                        $(".modal-body #information").text(_email);
-                    } else {
-                        if (_biography){
-                            $(".modal-body #information").text(_name);
-                            $(".modal-body #biography").text(_biography);
-                        } else {
-                            $(".modal-body #information").text(_not_registered);
-                        }
-                    }
-                }
+                $(".modal-body #information").text(_not_registered);
             }
 
             $(".modal-header #infotitle").text(_title);
