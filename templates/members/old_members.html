@@ -122,6 +122,7 @@
                                     <span id="mb-phone" class="modal_b_text2"></span>
                                 </div>
                             </div>
+                            <div class="row pb-3"></div>
                         </div>
                         <div class="col-md-8 modal_b_text1">
                             <div id="mb-biography"></div>
@@ -131,22 +132,25 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-8">
                             <div class="row py-1">
-                                <div id="div-mb-lattes" class="col-1">
+                                <div id="div-mb-social" class="col-auto modal_b_text3">
+                                    {% trans 'More information' %}: 
+                                </div>
+                                <div id="div-mb-lattes" class="col-1-cus">
                                     <a id="mb-lattes" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'img/icons/lattes.png' %}" class="icon_academic">
+                                        <img src="{% static 'img/icons/lattes.svg' %}" class="icon_academic">
                                     </a>
                                 </div>
-                                <div id="div-mb-researchgate" class="col-1">
+                                <div id="div-mb-researchgate" class="col-1-cus">
                                     <a id="mb-researchgate" target="_blank" rel="noopener noreferrer">
                                         <i class="fab fa-researchgate icon_academic_fawesome"></i>
                                     </a>
                                 </div>
-                                <div id="div-mb-orcid" class="col-1">
+                                <div id="div-mb-orcid" class="col-1-cus">
                                     <a id="mb-orcid" target="_blank" rel="noopener noreferrer">
                                         <img src="{% static 'img/icons/orcid.svg' %}" class="icon_academic">
                                     </a>
                                 </div>
-                                <div id="div-mb-linkedin" class="col-1">
+                                <div id="div-mb-linkedin" class="col-1-cus">
                                     <a id="mb-linkedin" target="_blank" rel="noopener noreferrer">
                                         <i class="fab fa-linkedin  icon_academic_fawesome"></i>
                                     </a>
@@ -266,6 +270,12 @@
                 $(".modal-body #div-mb-linkedin").show();
             } else {
                 $(".modal-body #div-mb-linkedin").hide();
+            }
+
+            if (!_lattes && !_researchgate && !_orcid && !_linkedin) {
+                $(".modal-body #div-mb-social").hide();
+            } else {
+                $(".modal-body #div-mb-social").show();
             }
         });
 

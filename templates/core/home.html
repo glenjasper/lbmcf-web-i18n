@@ -378,6 +378,7 @@
                                     <span id="mb-phone" class="modal_b_text2"></span>
                                 </div>
                             </div>
+                            <div class="row pb-3"></div>
                         </div>
                         <div class="col-md-8 modal_b_text1">
                             <div id="mb-biography"></div>
@@ -387,22 +388,25 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-8">
                             <div class="row py-1">
-                                <div id="div-mb-lattes" class="col-1">
+                                <div id="div-mb-social" class="col-auto modal_b_text3">
+                                    {% trans 'More information' %}: 
+                                </div>
+                                <div id="div-mb-lattes" class="col-1-cus">
                                     <a id="mb-lattes" target="_blank" rel="noopener noreferrer">
-                                        <img src="{% static 'img/icons/lattes.png' %}" class="icon_academic">
+                                        <img src="{% static 'img/icons/lattes.svg' %}" class="icon_academic">
                                     </a>
                                 </div>
-                                <div id="div-mb-researchgate" class="col-1">
+                                <div id="div-mb-researchgate" class="col-1-cus">
                                     <a id="mb-researchgate" target="_blank" rel="noopener noreferrer">
                                         <i class="fab fa-researchgate icon_academic_fawesome"></i>
                                     </a>
                                 </div>
-                                <div id="div-mb-orcid" class="col-1">
+                                <div id="div-mb-orcid" class="col-1-cus">
                                     <a id="mb-orcid" target="_blank" rel="noopener noreferrer">
                                         <img src="{% static 'img/icons/orcid.svg' %}" class="icon_academic">
                                     </a>
                                 </div>
-                                <div id="div-mb-linkedin" class="col-1">
+                                <div id="div-mb-linkedin" class="col-1-cus">
                                     <a id="mb-linkedin" target="_blank" rel="noopener noreferrer">
                                         <i class="fab fa-linkedin  icon_academic_fawesome"></i>
                                     </a>
@@ -743,28 +747,22 @@
             <div class="row">
                 {% for item, link in context_links.items %}
                     {% if forloop.first %}
-                        <div class="col-md-12">
-                            <hr>&nbsp;
-                        </div>
+                        <div class="col-md-12"><hr></div>
                     {% endif %}
                     {% if link.weight == 0 %}
-                        <div class="col-md-2 col-sm-6 div-link">
+                        <div class="col-md-2 pb-4 text-center">
                             <a href="{{ link.link }}" target="_blank" rel="noopener noreferrer">
-                                <img class="img-link1" src="{{ link.logo.url }}" alt="{{ link.name }}">
+                                <img class="img-link" src="{{ link.logo.url }}" alt="{{ link.name }}">
                             </a>
                         </div>
                     {% else %}
-                        <div class="col-md-{{ link.weight }} col-sm-6">
-                        </div>
+                        <div class="col-md-{{ link.weight }}"></div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:6 and forloop.last == False %}
-                        <div class="col-md-12">
-                            &nbsp;
-                        </div>
+                        <div class="col-md-12"></div>
                     {% endif %}
                     {% if forloop.last %}
-                        <div class="col-md-12">
-                        </div>
+                        <div class="col-md-12"></div>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -833,6 +831,12 @@
                 $(".modal-body #div-mb-linkedin").show();
             } else {
                 $(".modal-body #div-mb-linkedin").hide();
+            }
+
+            if (!_lattes && !_researchgate && !_orcid && !_linkedin) {
+                $(".modal-body #div-mb-social").hide();
+            } else {
+                $(".modal-body #div-mb-social").show();
             }
         });
 

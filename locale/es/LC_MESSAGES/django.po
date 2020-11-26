@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-26 11:02-0300\n"
+"POT-Creation-Date: 2020-11-26 17:12-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,20 +137,20 @@ msgstr "Archivos"
 msgid "Members"
 msgstr "Miembros"
 
-#: templates/base/navbar.html:36 templates/core/home.html:470
+#: templates/base/navbar.html:36 templates/core/home.html:474
 #: templates/publications/papers.html:4 templates/publications/papers.html:14
 msgid "Publications"
 msgstr "Publicaciones"
 
-#: templates/base/navbar.html:39 templates/core/home.html:538
+#: templates/base/navbar.html:39 templates/core/home.html:542
 msgid "Partnerships"
 msgstr "Colaboraciones"
 
-#: templates/base/navbar.html:43 templates/core/home.html:711
+#: templates/base/navbar.html:43 templates/core/home.html:715
 msgid "Innovation"
 msgstr "Innovación"
 
-#: templates/base/navbar.html:46 templates/core/home.html:726
+#: templates/base/navbar.html:46 templates/core/home.html:730
 #: templates/innovation/patents.html:4 templates/innovation/patents.html:14
 msgid "Patents"
 msgstr "Patentes"
@@ -291,66 +291,70 @@ msgstr "Sé parte de nuestro equipo, te estamos esperando"
 msgid "See the former members"
 msgstr "Ver los ex miembros"
 
-#: templates/core/home.html:416 templates/core/home.html:456
-#: templates/core/home.html:692 templates/members/old_members.html:160
-#: templates/members/old_members.html:200 templates/research/projects.html:70
+#: templates/core/home.html:392 templates/members/old_members.html:136
+msgid "More information"
+msgstr "Más informaciones"
+
+#: templates/core/home.html:420 templates/core/home.html:460
+#: templates/core/home.html:696 templates/members/old_members.html:164
+#: templates/members/old_members.html:204 templates/research/projects.html:70
 msgid "Close"
 msgstr "Cerrar"
 
-#: templates/core/home.html:472
+#: templates/core/home.html:476
 msgid ""
 "Review the research carried out by the LBMCF in collaboration with "
 "partnerships."
 msgstr ""
 "Revise las investigaciones realizadas por LBMCF en colaboración con socios."
 
-#: templates/core/home.html:491
+#: templates/core/home.html:495
 msgid "SeePubs"
 msgstr "Ver publicaciones"
 
-#: templates/core/home.html:519 templates/core/home.html:917
+#: templates/core/home.html:523 templates/core/home.html:927
 msgid "See statistics"
 msgstr "Ver estadísticas"
 
-#: templates/core/home.html:539
+#: templates/core/home.html:543
 msgid "National / International"
 msgstr "Nacionales / Internacionales"
 
-#: templates/core/home.html:574 templates/core/home.html:601
+#: templates/core/home.html:578 templates/core/home.html:605
 msgid "Inter7l"
 msgstr "Internacionales"
 
-#: templates/core/home.html:608
+#: templates/core/home.html:612
 msgid "World"
 msgstr "Mundo"
 
-#: templates/core/home.html:654
+#: templates/core/home.html:658
 msgid "Country"
 msgstr "País"
 
-#: templates/core/home.html:714
+#: templates/core/home.html:718
 msgid "Products developed by LBMCF in collaboration with partners"
 msgstr "Productos desarrollados por LBMCF en colaboración con socios"
 
-#: templates/core/home.html:729
+#: templates/core/home.html:733
 msgid "See patents developed"
 msgstr "Ver las patentes desarrolladas"
 
-#: templates/core/home.html:779 templates/core/home.html:841
-#: templates/members/old_members.html:212
-#: templates/members/old_members.html:274
+#: templates/core/home.html:783 templates/core/home.html:851
+#: templates/members/old_members.html:216
+#: templates/members/old_members.html:284
 msgid "NotReg"
 msgstr "No registrado"
 
-#: templates/core/home.html:881
+#: templates/core/home.html:891
 msgid "Articles"
 msgstr "Artículos"
 
-#: templates/core/home.html:901
+#: templates/core/home.html:911
 msgid "Articles published per year"
 msgstr "Artículos publicados por año"
 
-#: templates/core/home.html:917
+#: templates/core/home.html:927
 msgid "Hide statistics"
 msgstr "Ocultar estadísticas"
 

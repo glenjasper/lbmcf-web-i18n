@@ -407,20 +407,9 @@ ol.carousel-indicators li.active {
 10. More
 ----------------------*/
 
-.div-link {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.img-link1 {
+.img-link {
     height: 42px;
     border: 0;
-}
-
-.img-link2 {
-    height: 34px;
-    border: none;
 }
 
 .footer-bottom {
@@ -571,30 +560,6 @@ Bar chart
     padding-left: 10px;
     margin-right: auto;
     margin-left: auto
-}
-
-@media(min-width:576px) {
-    .container-bar {
-        max-width: 540px
-    }
-}
-
-@media(min-width:768px) {
-    .container-bar {
-        max-width: 720px
-    }
-}
-
-@media(min-width:992px) {
-    .container-bar {
-        max-width: 960px
-    }
-}
-
-@media(min-width:1200px) {
-    .container-bar {
-        max-width: 1140px
-    }
 }
 
 /*----------------------
@@ -817,29 +782,41 @@ Files
 /*--------------------------------------------------------------
 # Modal
 --------------------------------------------------------------*/
-.modal_b_text1 {
+.modal_b_text1,
+.modal_b_text2,
+.modal_b_text3 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 13px;
 }
 
 .modal_b_text2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 13px;
-    font-style: normal;
-    /*
-    clear: both;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    display:inline;
-    vertical-align: middle;
-    */
+    font-size: 12px;
+}
+
+.modal_b_text3 {
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+/*--------------------------------------------------------------
+# Columns
+--------------------------------------------------------------*/
+.col-1-cus {
+    position: relative;
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.col-1-cus {
+    -ms-flex: 0 0 7.3%;
+    flex: 0 0 7.3%;
+    max-width: 7.3%;
 }
 
 /*--------------------------------------------------------------
 # Icons
 --------------------------------------------------------------*/
-
 .icon_academic_fawesome {
     color: #000000;
     font-size: 1.5em;
