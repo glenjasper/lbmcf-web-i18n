@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-25 13:45-0300\n"
+"POT-Creation-Date: 2020-11-26 11:02-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgid "About us"
 msgstr "Sobre nosotros"
 
 #: templates/about/about_update.html:15 templates/about/about_update.html:31
-#: templates/controller/controller_update.html:34
+#: templates/controller/controller_update.html:32
 #: templates/legal/politics_update.html:15
 #: templates/legal/politics_update.html:31
 #: templates/registration/profile.html:89
@@ -137,20 +137,20 @@ msgstr "Archivos"
 msgid "Members"
 msgstr "Miembros"
 
-#: templates/base/navbar.html:36 templates/core/home.html:373
+#: templates/base/navbar.html:36 templates/core/home.html:470
 #: templates/publications/papers.html:4 templates/publications/papers.html:14
 msgid "Publications"
 msgstr "Publicaciones"
 
-#: templates/base/navbar.html:39 templates/core/home.html:441
+#: templates/base/navbar.html:39 templates/core/home.html:538
 msgid "Partnerships"
 msgstr "Colaboraciones"
 
-#: templates/base/navbar.html:43 templates/core/home.html:614
+#: templates/base/navbar.html:43 templates/core/home.html:711
 msgid "Innovation"
 msgstr "Innovación"
 
-#: templates/base/navbar.html:46 templates/core/home.html:629
+#: templates/base/navbar.html:46 templates/core/home.html:726
 #: templates/innovation/patents.html:4 templates/innovation/patents.html:14
 msgid "Patents"
 msgstr "Patentes"
@@ -269,84 +269,88 @@ msgstr ""
 "Investigadores con diferentes perfiles trabajan en el laboratorio, aprende "
 "más sobre ellos"
 
-#: templates/core/home.html:185 templates/core/home.html:252
-#: templates/members/old_members.html:26
+#: templates/core/home.html:194 templates/core/home.html:270
+#: templates/core/home.html:350 templates/members/old_members.html:35
+#: templates/members/old_members.html:94
 msgid "Biography"
 msgstr "Biografía"
 
-#: templates/core/home.html:199
+#: templates/core/home.html:208
 msgid "Phone"
 msgstr "Teléfono"
 
-#: templates/core/home.html:278
+#: templates/core/home.html:296
 msgid "Mobile"
 msgstr "Celular"
 
-#: templates/core/home.html:317
+#: templates/core/home.html:335
 msgid "Be part of our team, we are waiting for you"
 msgstr "Sé parte de nuestro equipo, te estamos esperando"
 
-#: templates/core/home.html:321
+#: templates/core/home.html:339
 msgid "See the former members"
 msgstr "Ver los ex miembros"
 
-#: templates/core/home.html:359 templates/core/home.html:595
-#: templates/members/old_members.html:112 templates/research/projects.html:70
+#: templates/core/home.html:416 templates/core/home.html:456
+#: templates/core/home.html:692 templates/members/old_members.html:160
+#: templates/members/old_members.html:200 templates/research/projects.html:70
 msgid "Close"
 msgstr "Cerrar"
 
-#: templates/core/home.html:375
+#: templates/core/home.html:472
 msgid ""
 "Review the research carried out by the LBMCF in collaboration with "
 "partnerships."
 msgstr ""
 "Revise las investigaciones realizadas por LBMCF en colaboración con socios."
 
-#: templates/core/home.html:394
+#: templates/core/home.html:491
 msgid "SeePubs"
 msgstr "Ver publicaciones"
 
-#: templates/core/home.html:422 templates/core/home.html:768
+#: templates/core/home.html:519 templates/core/home.html:917
 msgid "See statistics"
 msgstr "Ver estadísticas"
 
-#: templates/core/home.html:442
+#: templates/core/home.html:539
 msgid "National / International"
 msgstr "Nacionales / Internacionales"
 
-#: templates/core/home.html:477 templates/core/home.html:504
+#: templates/core/home.html:574 templates/core/home.html:601
 msgid "Inter7l"
 msgstr "Internacionales"
 
-#: templates/core/home.html:511
+#: templates/core/home.html:608
 msgid "World"
 msgstr "Mundo"
 
-#: templates/core/home.html:557
+#: templates/core/home.html:654
 msgid "Country"
 msgstr "País"
 
-#: templates/core/home.html:617
+#: templates/core/home.html:714
 msgid "Products developed by LBMCF in collaboration with partners"
 msgstr "Productos desarrollados por LBMCF en colaboración con socios"
 
-#: templates/core/home.html:632
+#: templates/core/home.html:729
 msgid "See patents developed"
 msgstr "Ver las patentes desarrolladas"
 
-#: templates/core/home.html:682 templates/members/old_members.html:124
+#: templates/core/home.html:779 templates/core/home.html:841
+#: templates/members/old_members.html:212
+#: templates/members/old_members.html:274
 msgid "NotReg"
 msgstr "No registrado"
 
-#: templates/core/home.html:732
+#: templates/core/home.html:881
 msgid "Articles"
 msgstr "Artículos"
 
-#: templates/core/home.html:752
+#: templates/core/home.html:901
 msgid "Articles published per year"
 msgstr "Artículos publicados por año"
 
-#: templates/core/home.html:768
+#: templates/core/home.html:917
 msgid "Hide statistics"
 msgstr "Ocultar estadísticas"
 
