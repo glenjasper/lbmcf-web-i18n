@@ -456,45 +456,31 @@ a.disabled {
     border-color: rgb(255, 255, 255);
 }
 
-.item-intro-subtitle1 {
+.item-intro-subtitle1,
+.item-intro-subtitle2,
+.item-intro-subtitle3 {
     font-size: 16px;
     font-style: italic;
     margin-top: 10px;
     margin-bottom: 15px;
-    margin-left: -10px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
     font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .item-intro-subtitle2 {
-    font-size: 16px;
-    font-style: italic;
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-left: -30px;
-    margin-right: 0px;
-    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .item-intro-subtitle3 {
     font-size: 15px;
-    font-style: italic;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-left: -10px;
-    margin-right: 0px;
-    font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .hr-separator {
-    height:1px;
-    border:none;
-    background-color:rgb(182, 182, 182);
-    width:750px;
-    /*width:calc(100% - 200px);*/
-    /*text-align:center;*/
-    margin-left: -30px;
+    height: 1px;
+    border: none;
+    background-color: rgb(230, 224, 224);
+    width: 100%;
 }
 
 .text-muted-alter {

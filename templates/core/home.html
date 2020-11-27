@@ -586,50 +586,83 @@
 
     <!-- Modals -->
     {% for state_id, hash_partnerships_detail in context_partnerships_detail.items %}
-        <div class="portfolio-modal modal fade" id="modal_partnership{{ state_id }}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade" id="modal_partnership{{ state_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal">
-                        <div class="lr">
-                            <div class="rl"></div>
-                        </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title text-uppercase" id="myModalLabel">
+                            {% if state_id != 0 %}
+                                {{ hash_partnerships_detail.country_name }}<span class="text-muted">: {{ hash_partnerships_detail.state_name }} ({{ hash_partnerships_detail.state_code }})</span>
+                            {% else %}
+                                {% trans 'Inter7l' %}
+                            {% endif %}
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="container">
+                    <div class="modal-body">
                         <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <div class="modal-body">
-                                    <h2 class="text-uppercase">
-                                        {% if state_id != 0 %}
-                                            {{ hash_partnerships_detail.state_name }} ({{ hash_partnerships_detail.state_code }})
-                                        {% else %}
-                                            {% trans 'Inter7l' %}
-                                        {% endif %}
-                                    </h2>
-                                    <p class="item-intro text-muted">
-                                        {% if state_id != 0 %}
-                                            {{ hash_partnerships_detail.country_name }}
-                                        {% else %}
-                                            {% trans 'World' %}
-                                        {% endif %}
-                                    </p>
-                                    <!-- Brazil -->
-                                    {% if state_id != 0 %}
-                                        {% for institutions_id, hash_partnerships in hash_partnerships_detail.data.items %}
-                                        <ul class="list-inline social-buttons text-left">
-                                            <div class="item-intro-subtitle1 text-muted">
-                                                {{ hash_partnerships.institution }} ({{ hash_partnerships.institution_name }})
+                            <div class="col">
+                                <!-- Brazil -->
+                                {% if state_id != 0 %}
+                                    {% for institutions_id, hash_partnerships in hash_partnerships_detail.data.items %}
+                                    <ul class="list-inline social-buttons text-left">
+                                        <div class="item-intro-subtitle1 text-muted">
+                                            {{ hash_partnerships.institution }} ({{ hash_partnerships.institution_name }})
+                                        </div>
+                                        <li class="list-inline-item lattes-buttons-modal">
+                                            {% for item, partnership in hash_partnerships.data.items %}
+                                                <div class="row pb-2">
+                                                    <div class="pl-4">
+                                                        {% if partnership.link %}
+                                                            <a href="{{ partnership.link }}" target="_blank" rel="noopener noreferrer" class="text-center">
+                                                                <img src="{% static 'img/icons/lattes-white.png' %}">
+                                                            </a>
+                                                        {% else %}
+                                                            <a href="#" class="disabled text-center">
+                                                                <img src="{% static 'img/icons/lattes-white.png' %}">
+                                                            </a>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                        {{ partnership.degree }} {{ partnership.partner }}
+                                                    </div>
+                                                    <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                        {% with 'img/flags/countries/'|add:partnership.country_code|lower|add:'.png' as image_static %}
+                                                            <img src="{% static image_static %}" class="img-flag-partner">
+                                                        {% endwith %}
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </li>
+                                    </ul>
+                                    {% if not forloop.last %}
+                                        <hr class="hr-separator">
+                                    {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                <!-- International -->
+                                    {% for country_id, hash_countries in hash_partnerships_detail.items %}
+                                    <ul class="list-inline social-buttons text-left">
+                                        <li class="list-inline-item" style="width:100%;">
+                                            <div class="item-intro-subtitle2 text-muted">
+                                                {% trans 'Country' %}: {{ hash_countries.country_name }}
                                             </div>
-                                            <li class="list-inline-item lattes-buttons-modal">
-                                                {% for item, partnership in hash_partnerships.data.items %}
+                                            {% for item, hash_partnership in hash_countries.data.items %}
+                                                <div class="item-intro-subtitle3 text-muted pl-2">
+                                                    {{ hash_partnership.institution }} ({{ hash_partnership.institution_name }})
+                                                </div>
+                                                {% for code, partnership in hash_partnership.data.items %}
                                                     <div class="row pb-2">
-                                                        <div>
+                                                        <div class="pl-4">
                                                             {% if partnership.link %}
                                                                 <a href="{{ partnership.link }}" target="_blank" rel="noopener noreferrer" class="text-center">
-                                                                    <img src="{% static 'img/icons/lattes-white.png' %}">
+                                                                    <i class="fab fa-cloudversify"></i><!--fa-link|fa-cloud-->
                                                                 </a>
                                                             {% else %}
                                                                 <a href="#" class="disabled text-center">
-                                                                    <img src="{% static 'img/icons/lattes-white.png' %}">
+                                                                    <i class="fab fa-cloudversify"></i>
                                                                 </a>
                                                             {% endif %}
                                                         </div>
@@ -643,61 +676,25 @@
                                                         </div>
                                                     </div>
                                                 {% endfor %}
-                                            </li>
-                                        </ul>
-                                        {% if not forloop.last %}
-                                            <hr class="hr-separator">
-                                        {% endif %}
-                                        {% endfor %}
-                                    {% else %}
-                                    <!-- International -->
-                                        {% for country_id, hash_countries in hash_partnerships_detail.items %}
-                                        <ul class="list-inline social-buttons text-left">
-                                            <li class="list-inline-item">
-                                                <div class="item-intro-subtitle2 text-muted">
-                                                    {% trans 'Country' %}: {{ hash_countries.country_name }}
-                                                </div>
-                                                {% for item, hash_partnership in hash_countries.data.items %}
-                                                    <div class="item-intro-subtitle3 text-muted">
-                                                        {{ hash_partnership.institution }} ({{ hash_partnership.institution_name }})
+                                            {% endfor %}
+                                            {% if not forloop.last %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <hr class="hr-separator">
                                                     </div>
-                                                    {% for code, partnership in hash_partnership.data.items %}
-                                                        <div class="row pb-2">
-                                                            <div>
-                                                                {% if partnership.link %}
-                                                                    <a href="{{ partnership.link }}" target="_blank" rel="noopener noreferrer" class="text-center">
-                                                                        <i class="fab fa-cloudversify"></i><!--fa-link|fa-cloud-->
-                                                                    </a>
-                                                                {% else %}
-                                                                    <a href="#" class="disabled text-center">
-                                                                        <i class="fab fa-cloudversify"></i>
-                                                                    </a>
-                                                                {% endif %}
-                                                            </div>
-                                                            <div class="g-margin-t-10--xs g-margin-l-10--xs">
-                                                                {{ partnership.degree }} {{ partnership.partner }}
-                                                            </div>
-                                                            <div class="g-margin-t-10--xs g-margin-l-10--xs">
-                                                                {% with 'img/flags/countries/'|add:partnership.country_code|lower|add:'.png' as image_static %}
-                                                                    <img src="{% static image_static %}" class="img-flag-partner">
-                                                                {% endwith %}
-                                                            </div>
-                                                        </div>
-                                                    {% endfor %}
-                                                {% endfor %}
-                                                {% if not forloop.last %}
-                                                    <hr class="hr-separator">
-                                                {% endif %}
-                                            </li>
-                                        </ul>
-                                        {% endfor %}
-                                    {% endif %}
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                        <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
-                                    </button>
-                                </div>
+                                                </div>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary mx-auto" data-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>&nbsp;{% trans 'Close' %}
+                        </button>
                     </div>
                 </div>
             </div>
