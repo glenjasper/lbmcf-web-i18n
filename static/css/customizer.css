@@ -802,9 +802,9 @@ Files
 }
 
 .col-t2-cus {
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
+    -ms-flex: 0 0 26%;
+    flex: 0 0 26%;
+    max-width: 26%;
 
     padding-right: 0;
     padding-left: 15px;
