@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-26 17:12-0300\n"
+"POT-Creation-Date: 2020-11-26 22:30-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,11 +146,11 @@ msgstr "Publications"
 msgid "Partnerships"
 msgstr "Partnerships"
 
-#: templates/base/navbar.html:43 templates/core/home.html:715
+#: templates/base/navbar.html:43 templates/core/home.html:712
 msgid "Innovation"
 msgstr "Innovation"
 
-#: templates/base/navbar.html:46 templates/core/home.html:730
+#: templates/base/navbar.html:46 templates/core/home.html:727
 #: templates/innovation/patents.html:4 templates/innovation/patents.html:14
 msgid "Patents"
 msgstr "Patents"
@@ -312,7 +312,7 @@ msgstr ""
 msgid "SeePubs"
 msgstr "See publications"
 
-#: templates/core/home.html:523 templates/core/home.html:927
+#: templates/core/home.html:523 templates/core/home.html:918
 msgid "See statistics"
 msgstr "See statistics"
 
@@ -320,41 +320,37 @@ msgstr "See statistics"
 msgid "National / International"
 msgstr "National / International"
 
-#: templates/core/home.html:578 templates/core/home.html:605
+#: templates/core/home.html:578 templates/core/home.html:597
 msgid "Inter7l"
 msgstr "International"
 
-#: templates/core/home.html:612
-msgid "World"
-msgstr "World"
-
-#: templates/core/home.html:658
+#: templates/core/home.html:650
 msgid "Country"
 msgstr "Country"
 
-#: templates/core/home.html:718
+#: templates/core/home.html:715
 msgid "Products developed by LBMCF in collaboration with partners"
 msgstr "Products developed by LBMCF in collaboration with partners"
 
-#: templates/core/home.html:733
+#: templates/core/home.html:730
 msgid "See patents developed"
 msgstr "See patents developed"
 
-#: templates/core/home.html:783 templates/core/home.html:851
+#: templates/core/home.html:774 templates/core/home.html:842
 #: templates/members/old_members.html:216
 #: templates/members/old_members.html:284
 msgid "NotReg"
 msgstr "Not Registered"
 
-#: templates/core/home.html:891
+#: templates/core/home.html:882
 msgid "Articles"
 msgstr "Articles"
 
-#: templates/core/home.html:911
+#: templates/core/home.html:902
 msgid "Articles published per year"
 msgstr "Articles published per year"
 
-#: templates/core/home.html:927
+#: templates/core/home.html:918
 msgid "Hide statistics"
 msgstr "Hide statistics"
 
