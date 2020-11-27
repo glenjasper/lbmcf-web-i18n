@@ -6,8 +6,9 @@ from .models import (
 class PartnershipAdmin(admin.ModelAdmin):
     list_display = [
         '__str__',
-        'country',
+        'degree',
         'institution',
+        'country',
         'get_state',
         'status',
     ]
