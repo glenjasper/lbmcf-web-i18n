@@ -476,6 +476,11 @@ a.disabled {
     font-size: 15px;
 }
 
+.item-intro-subtitle4 {
+    font-size: 14px;
+    font-style: normal;
+}
+
 .hr-separator {
     height: 1px;
     border: none;

@@ -388,7 +388,7 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-8">
                             <div class="row py-1">
-                                <div id="div-mb-social" class="col-t2-cus modal_b_text3">
+                                <div id="div-mb-social" class="col-auto modal_b_text3">
                                     {% trans 'More information' %}: 
                                 </div>
                                 <div id="div-mb-lattes" class="col-t1-cus">
@@ -592,7 +592,7 @@
                     <div class="modal-header">
                         <h4 class="modal-title text-uppercase" id="myModalLabel">
                             {% if state_id != 0 %}
-                                {{ hash_partnerships_detail.country_name }}<span class="text-muted">: {{ hash_partnerships_detail.state_name }} ({{ hash_partnerships_detail.state_code }})</span>
+                                {{ hash_partnerships_detail.state_name }} ({{ hash_partnerships_detail.state_code }})
                             {% else %}
                                 {% trans 'Inter7l' %}
                             {% endif %}
@@ -625,7 +625,7 @@
                                                             </a>
                                                         {% endif %}
                                                     </div>
-                                                    <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                    <div class="g-margin-t-10--xs g-margin-l-10--xs item-intro-subtitle4">
                                                         {{ partnership.degree }} {{ partnership.partner }}
                                                     </div>
                                                     <div class="g-margin-t-10--xs g-margin-l-10--xs">
@@ -666,7 +666,7 @@
                                                                 </a>
                                                             {% endif %}
                                                         </div>
-                                                        <div class="g-margin-t-10--xs g-margin-l-10--xs">
+                                                        <div class="g-margin-t-10--xs g-margin-l-10--xs item-intro-subtitle4">
                                                             {{ partnership.degree }} {{ partnership.partner }}
                                                         </div>
                                                         <div class="g-margin-t-10--xs g-margin-l-10--xs">
